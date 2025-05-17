@@ -82,7 +82,9 @@ header .container {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
+
 
 .nav-links li {
     margin-left: 25px;
@@ -94,6 +96,7 @@ header .container {
     font-weight: 500;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     position: relative;
+    padding-top: 5px;    
     padding-bottom: 5px;
 }
 
