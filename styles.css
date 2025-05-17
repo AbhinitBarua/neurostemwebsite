@@ -110,6 +110,19 @@ body {
     }
 }
 
+@keyframes flyAcrossReversed {
+    0% {
+         transform: translateX(calc(100vw + 100px)) translateY(var(--translate-y-offset, 0px)) scaleX(-1) scale(var(--bird-scale, 1));
+         opacity: 0;
+       }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+    100% {
+        transform: translateX(-100px) translateY(var(--translate-y-offset, 0px)) scaleX(-1) scale(var(--bird-scale, 1));
+        opacity: 0;
+    }
+ }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
