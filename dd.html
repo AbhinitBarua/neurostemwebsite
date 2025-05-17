@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroStem - Doctor Dashboard</title>
+    <link rel="stylesheet" href="ddstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🩺 NeuroStem</h2>
+                <p>Doctor Dashboard</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="home-overview"><i class="fas fa-tachometer-alt"></i> Home / Overview</a></li>
+                    <li><a href="#" class="nav-link" data-section="patient-management"><i class="fas fa-users-cog"></i> Patient Management</a></li>
+                    <li><a href="#" class="nav-link" data-section="ai-diagnosis"><i class="fas fa-robot"></i> AI-Powered Diagnosis</a></li>
+                    <li><a href="#" class="nav-link" data-section="appointments"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                    <li><a href="#" class="nav-link" data-section="prescription-treatment"><i class="fas fa-pills"></i> Prescription & Treatment</a></li>
+                    <li><a href="#" class="nav-link" data-section="communication"><i class="fas fa-headset"></i> Communication</a></li>
+                    <li><a href="#" class="nav-link" data-section="medical-resources"><i class="fas fa-book-medical"></i> Medical Resources</a></li>
+                    <li><a href="#" class="nav-link" data-section="reports-analytics"><i class="fas fa-chart-line"></i> Reports & Analytics</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile-settings"><i class="fas fa-user-md"></i> Profile & Settings</a></li>
+                    <li><a href="#" class="nav-link" data-section="support"><i class="fas fa-life-ring"></i> Support & Feedback</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>© 2023 NeuroStem</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- 1. Home / Overview -->
+            <section id="home-overview" class="dashboard-section active">
+                <header class="section-header">
+                    <h1>Welcome, Dr. Anya Sharma!</h1>
+                    <p>Your dashboard for managing patients and AI-assisted diagnoses.</p>
+                </header>
+                <div class="content-grid overview-grid">
+                    <div class="card quick-stats">
+                        <h3>Quick Stats</h3>
+                        <div class="stat-item"><span>Total Patients:</span> <strong>185</strong></div>
+                        <div class="stat-item"><span>Recent Diagnoses (7d):</span> <strong>12</strong></div>
+                        <div class="stat-item"><span>Appointments Today:</span> <strong>8</strong></div>
+                        <div class="stat-item"><span>AI Reports Generated (24h):</span> <strong>5</strong></div>
+                    </div>
+                    <div class="card notifications">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <ul>
+                            <li><span class="alert high"><i class="fas fa-exclamation-triangle"></i> HIGH RISK:</span> Patient ID #P1023 - AI flagged potential early-stage Alzheimer's. Review immediately.</li>
+                            <li><span class="alert medium"><i class="fas fa-file-medical-alt"></i> NEW DATA:</span> Scans uploaded for Patient John Doe (#P1088).</li>
+                            <li><span class="alert info"><i class="fas fa-info-circle"></i> UPDATE:</span> AI Model v2.2 has been deployed with improved sensitivity for Parkinson's.</li>
+                             <li><span class="alert low"><i class="fas fa-calendar-check"></i> REMINDER:</span> Follow-up appointment with Jane Smith scheduled for tomorrow at 10:00 AM.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Patient Management -->
+            <section id="patient-management" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Patient Management</h1>
+                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Add New Patient</button>
+                </header>
+                <div class="controls">
+                    <input type="text" placeholder="Search Patients (Name, ID)...">
+                    <select>
+                        <option value="">Filter by Disorder</option>
+                        <option value="alzheimers">Alzheimer's</option>
+                        <option value="parkinsons">Parkinson's</option>
+                    </select>
+                    <button class="btn"><i class="fas fa-search"></i> Search</button>
+                    <button class="btn btn-secondary"><i class="fas fa-upload"></i> Upload Scan/Report to Patient</button>
+                </div>
+                <div class="data-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Last Visit</th>
+                                <th>AI Risk (Last)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P1023</td>
+                                <td>Robert Davis</td>
+                                <td>72</td>
+                                <td>2023-10-15</td>
+                                <td><span class="status high">High</span></td>
+                                <td><a href="#" class="action-link"><i class="fas fa-id-card"></i> View Profile</a> <a href="#" class="action-link"><i class="fas fa-notes-medical"></i> Add Note</a></td>
+                            </tr>
+                            <tr>
+                                <td>P1088</td>
+                                <td>John Doe</td>
+                                <td>65</td>
+                                <td>2023-10-20</td>
+                                <td><span class="status medium">Medium</span></td>
+                                <td><a href="#" class="action-link"><i class="fas fa-id-card"></i> View Profile</a> <a href="#" class="action-link"><i class="fas fa-notes-medical"></i> Add Note</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <!-- Placeholder for Individual Patient Profile (modal or expanded view) -->
+            </section>
+
+            <!-- 3. AI-Powered Diagnosis -->
+            <section id="ai-diagnosis" class="dashboard-section">
+                <header class="section-header">
+                    <h1>AI-Powered Diagnosis</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-play-circle"></i> Start New Analysis</h3>
+                        <form>
+                            <label for="patient-select-ai">Select Patient:</label>
+                            <select id="patient-select-ai">
+                                <option value="P1023">Robert Davis (P1023)</option>
+                                <option value="P1088">John Doe (P1088)</option>
+                            </select>
+                            <label for="scan-upload-ai">Upload Scan (EEG, MRI, CT):</label>
+                            <input type="file" id="scan-upload-ai">
+                            <label for="ai-model-choice">AI Model:</label>
+                            <select id="ai-model-choice">
+                                <option value="default">NeuroDetect v2.2 (Default)</option>
+                                <option value="custom">Specify Model...</option>
+                            </select>
+                            <button type="submit" class="btn"><i class="fas fa-cogs"></i> Run Analysis</button>
+                        </form>
+                    </div>
+                    <div class="card ai-results-card full-width">
+                        <h3><i class="fas fa-poll"></i> AI Analysis Results (for P1023)</h3>
+                        <div class="ai-result-item">
+                            <p><strong>Suggested Condition:</strong> Early-Stage Alzheimer's Disease</p>
+                            <p><strong>Probability:</strong> 85%</p>
+                            <p><strong>Confidence Level:</strong> 92% (High)</p>
+                            <div class="ai-visuals">
+                                <p><strong>Visuals:</strong></p>
+                                <img src="https://via.placeholder.com/300x150?text=EEG+Spike+Detection" alt="EEG Spike Detection Placeholder">
+                                <img src="https://via.placeholder.com/300x150?text=MRI+Heatmap+Placeholder" alt="MRI Heatmap Placeholder">
+                            </div>
+                        </div>
+                        <div class="doctor-actions">
+                            <textarea placeholder="Doctor's Notes & Observations..."></textarea>
+                            <button class="btn btn-success"><i class="fas fa-check-circle"></i> Accept AI Diagnosis</button>
+                            <button class="btn btn-warning"><i class="fas fa-times-circle"></i> Dispute AI Diagnosis</button>
+                            <button class="btn btn-secondary"><i class="fas fa-share"></i> Request Second Opinion</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Appointments & Scheduling -->
+            <section id="appointments" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Appointments & Scheduling</h1>
+                    <button class="btn btn-primary"><i class="fas fa-calendar-plus"></i> Add New Appointment</button>
+                </header>
+                <div class="content-grid">
+                    <div class="card calendar-view">
+                        <h3><i class="fas fa-calendar-day"></i> Daily/Weekly View</h3>
+                        <!-- Placeholder for actual calendar -->
+                        <div class="calendar-placeholder">
+                            <p>Calendar plugin/widget would go here.</p>
+                            <img src="https://via.placeholder.com/600x300?text=Calendar+View" alt="Calendar Placeholder">
+                        </div>
+                    </div>
+                    <div class="card upcoming-appointments">
+                        <h3><i class="fas fa-clock"></i> Upcoming Appointments (Today)</h3>
+                        <ul>
+                            <li>10:00 AM - Jane Smith (Follow-up)</li>
+                            <li>11:30 AM - Michael Brown (New Consultation)</li>
+                            <li>02:00 PM - Emily White (Scan Review)</li>
+                        </ul>
+                         <h3 style="margin-top: 20px;"><i class="fas fa-envelope-open-text"></i> Patient Appointment Requests</h3>
+                        <ul>
+                            <li>David Lee - Requesting follow-up next week. <a href="#" class="action-link">Review</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Prescription & Treatment -->
+            <section id="prescription-treatment" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Prescription & Treatment</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-file-prescription"></i> Write New Prescription</h3>
+                        <form>
+                            <label for="patient-select-rx">Patient:</label>
+                            <select id="patient-select-rx">
+                                <option>Select Patient...</option>
+                                <option>Robert Davis (P1023)</option>
+                                <option>Jane Smith (P0754)</option>
+                            </select>
+                            <label for="drug-name">Drug Name:</label>
+                            <input type="text" id="drug-name" placeholder="e.g., Donepezil">
+                            <!-- Smart suggestions would appear here -->
+                            <label for="dosage">Dosage & Frequency:</label>
+                            <input type="text" id="dosage" placeholder="e.g., 5mg once daily">
+                            <div class="alert-box warning">
+                                <i class="fas fa-exclamation-triangle"></i> Potential interaction with Warfarin. Proceed with caution.
+                            </div>
+                            <button type="submit" class="btn"><i class="fas fa-pen-alt"></i> Issue Prescription</button>
+                            <button type="button" class="btn btn-secondary"><i class="fas fa-share-square"></i> Share with Patient</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-history"></i> Previous Prescriptions (Robert Davis)</h3>
+                        <ul>
+                            <li>Aricept 10mg (2023-09-01) - Active</li>
+                            <li>Memantine 5mg (2023-07-15) - Discontinued</li>
+                        </ul>
+                        <h3><i class="fas fa-lightbulb"></i> AI Suggested Treatment Plans (Optional)</h3>
+                        <p>For Patient P1023 (Alzheimer's): Consider combination therapy with Memantine. <a href="#" class="action-link">Details</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Communication -->
+            <section id="communication" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Communication</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-comments"></i> Patient Chat</h3>
+                        <p>Secure messaging with your patients.</p>
+                        <div class="chat-placeholder">
+                            <p>[Chat Interface Placeholder]</p>
+                            <button class="btn"><i class="fas fa-comment-dots"></i> Open Patient Messenger</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-user-friends"></i> Doctor-to-Doctor Consults</h3>
+                        <p>Collaborate with other specialists.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-user-plus"></i> Start New Consult</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-video"></i> Teleconsultation</h3>
+                        <p>Integrate video calls (if supported).</p>
+                        <button class="btn btn-secondary"><i class="fas fa-phone-alt"></i> Start Video Call</button>
+                    </div>
+                </div>
+            </section>
+
+             <!-- 7. Medical Resources -->
+            <section id="medical-resources" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Medical Resources</h1>
+                </header>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-book-reader fa-3x"></i>
+                        <h3>Clinical Guidelines</h3>
+                        <p>Access NICE, AAN, and other neurology guidelines.</p>
+                        <button class="btn btn-secondary">Browse Guidelines</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                        <h3>Search Condition/Treatment Info</h3>
+                        <input type="text" placeholder="e.g., Parkinson's new treatments" style="width: 80%; margin-bottom:10px;">
+                        <button class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-newspaper fa-3x"></i>
+                        <h3>Latest Research Papers</h3>
+                        <p>Curated updates from leading neurology journals.</p>
+                        <button class="btn btn-secondary">View Papers</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Reports & Analytics -->
+            <section id="reports-analytics" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Reports & Analytics</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card full-width">
+                        <h3><i class="fas fa-chart-pie"></i> Diagnostic Trends (Last 30 Days)</h3>
+                        <!-- Placeholder for charts -->
+                        <img src="https://via.placeholder.com/700x300?text=Diagnostic+Trends+Chart" alt="Chart Placeholder" style="width:100%; max-width:700px; margin:10px auto; display:block;">
+                        <p>Most Frequent: Mild Cognitive Impairment (35%), Parkinson's (25%), Alzheimer's (Early) (20%)</p>
+                        <p>AI Detection Accuracy: 91% (Compared to clinician confirmation)</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-file-download"></i> Download Reports</h3>
+                        <label for="report-patient">Select Patient:</label>
+                        <select id="report-patient">
+                            <option>Robert Davis (P1023)</option>
+                        </select>
+                        <label for="report-type">Report Type:</label>
+                        <select id="report-type">
+                            <option>Full Medical History</option>
+                            <option>Latest AI Analysis</option>
+                            <option>Visit Summary</option>
+                        </select>
+                        <button class="btn"><i class="fas fa-download"></i> Download PDF</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-file-export"></i> Export Data</h3>
+                        <p>Export patient history summaries or anonymized data for research (with consent).</p>
+                        <button class="btn btn-secondary"><i class="fas fa-database"></i> Export History Summary (PDF)</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Profile & Settings -->
+            <section id="profile-settings" class="dashboard-section">
+                 <header class="section-header">
+                    <h1>Profile & Settings</h1>
+                </header>
+                 <div class="content-grid">
+                    <div class="card">
+                        <h3>Edit Profile</h3>
+                        <form>
+                            <label for="docName">Full Name:</label>
+                            <input type="text" id="docName" value="Dr. Anya Sharma">
+                            <label for="docSpecialty">Specialty:</label>
+                            <input type="text" id="docSpecialty" value="Neurologist">
+                             <label for="docContact">Contact Email:</label>
+                            <input type="email" id="docContact" value="anya.sharma@neurostem.clinic">
+                            <label for="docAvailability">Availability Notes:</label>
+                            <textarea id="docAvailability">Mon-Fri, 9 AM - 5 PM. Available for urgent consults.</textarea>
+                            <button type="submit" class="btn"><i class="fas fa-save"></i> Save Profile</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Security</h3>
+                        <button class="btn btn-secondary"><i class="fas fa-key"></i> Change Password</button>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-shield-alt"></i> Enable 2FA</button>
+                        <h3 style="margin-top:20px;">Notification Settings</h3>
+                        <label><input type="checkbox" checked> Email for High-Risk AI Alerts</label>
+                        <label><input type="checkbox" checked> In-App for New Patient Data</label>
+                        <label><input type="checkbox"> SMS for Urgent Appointments</label>
+                    </div>
+                    <div class="card">
+                        <h3>Certifications & License</h3>
+                        <p>Upload or update your professional credentials.</p>
+                        <input type="file" id="doc-cert-upload">
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-upload"></i> Upload Document</button>
+                        <ul>
+                            <li>Medical License (Neurology) - Exp: 2025-08-31</li>
+                            <li>Board Certification - Valid</li>
+                        </ul>
+                         <div style="margin-top: 20px; padding: 10px; border: 1px solid var(--success-color); border-radius: 4px; background-color: #e8f5e9;">
+                            <i class="fas fa-shield-check" style="color: var(--success-color);"></i> HIPAA/GDPR Compliant Platform
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Support & Feedback -->
+            <section id="support" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Support & Feedback</h1>
+                </header>
+                 <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-headset"></i> Contact Support</h3>
+                        <form>
+                            <label for="support-issue-doc">Issue Type:</label>
+                            <select id="support-issue-doc">
+                                <option>Technical Problem</option>
+                                <option>Billing Inquiry</option>
+                                <option>AI Model Feedback</option>
+                                <option>Other</option>
+                            </select>
+                            <textarea placeholder="Describe your issue..."></textarea>
+                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Request</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-bug"></i> Report a Bug / <i class="fas fa-lightbulb"></i> Suggest Feature</h3>
+                         <textarea placeholder="Describe the bug or your feature idea..."></textarea>
+                         <button class="btn btn-danger" style="margin-top:10px;"><i class="fas fa-bug"></i> Submit Bug Report</button>
+                         <button class="btn btn-info" style="margin-top:10px;"><i class="fas fa-lightbulb"></i> Suggest Feature</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-book"></i> Doctor's User Manual & FAQ</h3>
+                        <p>Find quick answers and guides.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-question-circle"></i> View FAQ</button>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-book-open"></i> Open User Manual</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="ddscript.js"></script>
+</body>
+</html>
