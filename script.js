@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             // Add actual form submission logic here (e.g., AJAX)
-            alert('Form submitted (simulated)! Thank you.');
+            window.location.href = "https://neurostem.vercel.app/rd.html";
             form.reset(); // Reset form fields
         });
     });
