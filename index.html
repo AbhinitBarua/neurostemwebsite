@@ -272,9 +272,9 @@
                     <button class="role-btn">Institution</button>
                 </div>
                 <form class="login-form animate-on-scroll">
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit" class="btn btn-primary">Login / Register</button>
+                    <input type="email" placeholder="Email Address" id="username" required>
+                    <input type="password" placeholder="Password" id="password" required>
+                    <button type="submit" class="btn btn-primary" onclick="checkAndRedirect()">Login / Register</button>
                     <p>Secure login with 2FA. Optional Google/Apple sign-in.</p>
                     <div class="social-login">
                         <button class="social-btn"><i class="fab fa-google"></i> Sign in with Google</button>
@@ -283,6 +283,24 @@
                 </form>
             </div>
         </section>
+
+        <script>
+            function checkAndRedirect() {
+                const input = document.getElementById("username").value.trim();
+                const redirectMap = {
+                    "researcher@neurostem.com": "https://neurostem.vercel.app/rd.html",
+                    "doctor@neurostem.com": "https://neurostem.vercel.app/dd.html",
+                    "patient@neurostem.com": "https://neurostem.vercel.app/pd.html",
+                    "institution@neurostem.com": "https://neurostem.vercel.app/itd.html"
+                };
+
+                if (input in redirectMap) {
+                    window.location.href = redirectMap[input];
+                } else {
+                    alert("User not found. Please try again")
+                }
+            }
+        </script>
 
         <section id="tech-stack" class="section-padding alt-bg">
             <div class="container">
