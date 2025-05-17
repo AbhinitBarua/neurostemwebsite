@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroStem - Patient Dashboard</title>
+    <link rel="stylesheet" href="pdstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🧠 NeuroStem</h2>
+                <p>Patient Portal</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="home-overview"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-link" data-section="ai-diagnostics"><i class="fas fa-brain"></i> MirrorBrain AI</a></li>
+                    <li><a href="#" class="nav-link" data-section="health-summary"><i class="fas fa-file-medical-alt"></i> Health Summary</a></li>
+                    <li><a href="#" class="nav-link" data-section="appointments"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                    <li><a href="#" class="nav-link" data-section="prescriptions"><i class="fas fa-pills"></i> Prescriptions</a></li>
+                    <li><a href="#" class="nav-link" data-section="communication"><i class="fas fa-comments"></i> Messages</a></li>
+                    <li><a href="#" class="nav-link" data-section="documents"><i class="fas fa-folder-open"></i> Documents</a></li>
+                    <li><a href="#" class="nav-link" data-section="ai-settings"><i class="fas fa-cog"></i> AI Settings</a></li>
+                    <li><a href="#" class="nav-link" data-section="health-journal"><i class="fas fa-book-heart"></i> Health Journal</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile-settings"><i class="fas fa-user-edit"></i> Profile & Settings</a></li>
+                    <li><a href="#" class="nav-link" data-section="help-support"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                 <label class="switch theme-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span style="margin-left: 10px;">Dark Mode</span>
+                <p>© 2023 NeuroStem</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- 1. Home / Dashboard Overview -->
+            <section id="home-overview" class="dashboard-section active">
+                <header class="section-header">
+                    <h1>👋 Welcome, [Patient Name]!</h1>
+                </header>
+                <div class="content-grid overview-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-calendar-alt"></i> Upcoming Appointment</h3>
+                        <p><strong>Dr. Anya Sharma (Neurologist)</strong></p>
+                        <p>Date: October 30, 2023, 10:00 AM</p>
+                        <p>Type: Follow-up Consultation</p>
+                        <button class="btn btn-secondary"><i class="fas fa-video"></i> Join Video Call</button>
+                    </div>
+                    <div class="card primary-doctor-card">
+                        <h3><i class="fas fa-user-md"></i> Your Primary Doctor</h3>
+                        <img src="https://via.placeholder.com/80" alt="Doctor Photo" class="doctor-photo">
+                        <p><strong>Dr. Anya Sharma</strong></p>
+                        <p>Specialization: Neurologist</p>
+                        <p><i class="fas fa-envelope"></i> dr.sharma@neurostem.clinic</p>
+                        <button class="btn"><i class="fas fa-comment-medical"></i> Send Message</button>
+                    </div>
+                    <div class="card full-width latest-ai-report">
+                        <h3><i class="fas fa-brain"></i> Latest MirrorBrain AI Report</h3>
+                        <p><strong>Model Used:</strong> R1-50B – Diagnostic Expert AI</p>
+                        <p><strong>Date:</strong> October 25, 2023</p>
+                        <p><strong>Summary:</strong> AI analysis suggests early indicators consistent with Mild Cognitive Impairment (MCI). Further clinical evaluation advised.</p>
+                        <a href="#" class="action-link" data-section-target="ai-diagnostics"><i class="fas fa-file-alt"></i> View Full Report</a>
+                    </div>
+                    <div class="card full-width notifications">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle success"></i> Your new MirrorBrain AI report is ready! (Oct 25)</li>
+                            <li><i class="fas fa-comment-dots info"></i> New message from Dr. Sharma. (Oct 24)</li>
+                            <li><i class="fas fa-exclamation-triangle warning"></i> Follow-up appointment due in 3 days.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. AI Diagnostics (MirrorBrain AI) -->
+            <section id="ai-diagnostics" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-brain"></i> MirrorBrain AI Diagnostics</h1>
+                </header>
+                <div class="ai-diagnostics-flow">
+                    <div class="card data-upload-card">
+                        <h3>1. Upload Your Data or Enter Symptoms</h3>
+                        <label for="scan-upload">Upload EEG, MRI, CT, CSV, or Images:</label>
+                        <input type="file" id="scan-upload" multiple>
+                        <p class="or-divider"><span>OR</span></p>
+                        <label for="symptoms-manual">Describe Your Symptoms:</label>
+                        <textarea id="symptoms-manual" placeholder="e.g., persistent headaches, memory difficulties, tremors..."></textarea>
+                    </div>
+
+                    <div class="card model-selection-card">
+                        <h3>2. Choose AI Model</h3>
+                        <div class="ai-model-options">
+                            <div class="ai-model-option selected" data-model="R1-50B">
+                                <h4>🧬 R1-50B – Diagnostic Expert AI</h4>
+                                <p>Deep clinical reasoning, multi-modal. Slow but extremely accurate.</p>
+                            </div>
+                            <div class="ai-model-option" data-model="L2-4B">
+                                <h4>🧠 L2-4B – Lightweight Screener</h4>
+                                <p>Fast preliminary screening. Ideal for early signs.</p>
+                            </div>
+                            <div class="ai-model-option" data-model="X3-20B">
+                                <h4>🔬 X3-20B – Specialist Evaluator</h4>
+                                <p>Focused on rare neurological patterns, complex cases.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card run-analysis-card">
+                        <h3>3. Run Analysis</h3>
+                        <button class="btn btn-primary btn-lg" id="runAiAnalysis"><i class="fas fa-play-circle"></i> Start MirrorBrain AI Analysis</button>
+                        <div class="progress-bar-container" style="display: none;">
+                            <p id="progressStatus">Status: Pending...</p>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 0%;">0%</div>
+                            </div>
+                            <p id="estimatedTime">Estimated time: Calculating...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ai-report-view" style="display: none;"> <!-- Hidden by default, shown after analysis -->
+                    <h3><i class="fas fa-file-medical"></i> MirrorBrain AI Report</h3>
+                    <div class="report-meta">
+                        <p><strong>Report ID:</strong> MB-20231026-XYZ</p>
+                        <p><strong>Model Used:</strong> <span id="reportModelUsed">R1-50B</span></p>
+                        <p><strong>Timestamp:</strong> <span id="reportTimestamp">October 26, 2023, 14:30</span></p>
+                    </div>
+                    <div class="report-content">
+                        <h4>Detected Condition(s):</h4>
+                        <p id="reportCondition">Early-Stage Mild Cognitive Impairment (MCI)</p>
+                        <h4>Probability & Confidence:</h4>
+                        <p><span id="reportProbability">Probability: 78%</span>, <span id="reportConfidence">Confidence: 90% (High)</span></p>
+                        <h4>Visualizations:</h4>
+                        <div class="report-visuals">
+                            <img src="https://via.placeholder.com/300x200?text=Scan+Heatmap+1" alt="Scan Heatmap">
+                            <img src="https://via.placeholder.com/300x200?text=EEG+Anomaly+Highlight" alt="EEG Anomaly">
+                        </div>
+                        <h4>AI Explanation (Natural Language):</h4>
+                        <p id="reportExplanation">The AI model analyzed the provided [scan type/symptoms] and identified patterns commonly associated with the early stages of Mild Cognitive Impairment. Key indicators include [specific finding 1] and [specific finding 2]. While these findings are significant, a comprehensive clinical evaluation by your doctor is essential for a definitive diagnosis and treatment plan.</p>
+                        <h4>Doctor's Notes:</h4>
+                        <p id="reportDoctorNotes" class="doctor-notes-placeholder"><em>Your doctor will review this report and add their notes here.</em></p>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-secondary"><i class="fas fa-download"></i> Download PDF</button>
+                        <button class="btn btn-secondary"><i class="fas fa-file-code"></i> Download JSON</button>
+                    </div>
+                    <small class="disclaimer">Medical Disclaimer: This AI report is for informational purposes only and does not constitute a medical diagnosis. Always consult with a qualified healthcare professional for any health concerns or before making any decisions related to your health or treatment.</small>
+                </div>
+            </section>
+
+            <!-- 3. Health Summary -->
+            <section id="health-summary" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-heartbeat"></i> Health Summary</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Active Diagnoses</h3>
+                        <ul>
+                            <li>Mild Cognitive Impairment (MCI) - Diagnosed Oct 2023</li>
+                            <li>Hypertension - Diagnosed Jan 2020</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>History of AI Reports & Conditions</h3>
+                        <ul>
+                            <li><strong>Oct 25, 2023 (R1-50B):</strong> Suspected MCI - <a href="#" class="action-link">View Report</a></li>
+                            <li><strong>Jun 10, 2023 (L2-4B):</strong> Negative for acute findings - <a href="#" class="action-link">View Report</a></li>
+                        </ul>
+                    </div>
+                    <div class="card full-width">
+                        <h3>Graph of Health Changes Over Time</h3>
+                        <img src="https://via.placeholder.com/700x300?text=Health+Metrics+Trend+Graph" alt="Health Graph Placeholder" class="placeholder-graph">
+                        <p class="text-center"><em>(e.g., symptom severity, cognitive scores over time)</em></p>
+                    </div>
+                     <div class="card full-width">
+                        <h3>Doctor-Submitted Notes</h3>
+                        <div class="note-item">
+                            <p><strong>Date: Oct 26, 2023 - Dr. Sharma</strong></p>
+                            <p>Reviewed latest MirrorBrain AI report. We will discuss these findings in our upcoming appointment. Please continue monitoring symptoms as discussed.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Appointments -->
+            <section id="appointments" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-calendar-alt"></i> Appointments</h1>
+                    <button class="btn btn-primary"><i class="fas fa-calendar-plus"></i> Request / Reschedule</button>
+                </header>
+                <div class="card">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="appointment-item upcoming">
+                        <p><strong>Dr. Anya Sharma (Neurologist)</strong> - Follow-up Consultation</p>
+                        <p><i class="fas fa-clock"></i> Oct 30, 2023, 10:00 AM</p>
+                        <button class="btn btn-success"><i class="fas fa-video"></i> Join Video Consultation</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Appointment History</h3>
+                    <div class="appointment-item past">
+                        <p><strong>Dr. Anya Sharma</strong> - Initial Consultation</p>
+                        <p><i class="fas fa-calendar-day"></i> Oct 15, 2023, 02:00 PM</p>
+                        <p><em>Summary: Discussed symptoms, ordered scans for AI analysis.</em></p>
+                    </div>
+                     <div class="appointment-item past">
+                        <p><strong>Dr. Ben Carter (GP)</strong> - Annual Check-up</p>
+                        <p><i class="fas fa-calendar-day"></i> Aug 05, 2023, 11:00 AM</p>
+                        <p><em>Summary: General health review, blood pressure check.</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Prescriptions & Treatment -->
+            <section id="prescriptions" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-tablets"></i> Prescriptions & Treatment</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Current Medications</h3>
+                        <div class="prescription-item">
+                            <p><strong>Lisinopril 10mg</strong> - 1 tablet daily (for Hypertension)</p>
+                            <p><em>Prescribed by: Dr. Ben Carter, Last Refill: Sep 1, 2023</em></p>
+                            <button class="btn btn-sm btn-info"><i class="fas fa-sync-alt"></i> Request Refill</button>
+                        </div>
+                         <!-- Add more current medications here -->
+                    </div>
+                    <div class="card">
+                        <h3>Prescription History</h3>
+                        <ul class="history-list">
+                            <li>Amlodipine 5mg (Discontinued Jun 2022) - <a href="#" class="action-link">View Details</a></li>
+                        </ul>
+                        <button class="btn btn-secondary" style="margin-top: 15px;"><i class="fas fa-print"></i> Download All Prescriptions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Communication -->
+            <section id="communication" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-headset"></i> Communication</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card full-width">
+                        <h3><i class="fas fa-comments"></i> Secure Chat with Your Doctor</h3>
+                        <div class="chat-interface-placeholder">
+                            <p><em>[Secure chat interface with Dr. Sharma would appear here]</em></p>
+                            <div class="chat-messages">
+                                <div class="message received"><strong>Dr. Sharma:</strong> Hello! Your AI report is ready. Please review it before our appointment.</div>
+                                <div class="message sent"><strong>You:</strong> Thank you, Dr. Sharma. I'll take a look.</div>
+                            </div>
+                            <textarea placeholder="Type your message..."></textarea>
+                            <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+                            <button class="btn btn-secondary"><i class="fas fa-paperclip"></i> Attach File</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-video"></i> Teleconsultations</h3>
+                        <p>Join scheduled video calls directly from your dashboard.</p>
+                        <button class="btn btn-success disabled"><i class="fas fa-video-slash"></i> No active calls</button>
+                        <!-- This button would be active for upcoming calls -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Documents & Uploads -->
+            <section id="documents" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-file-archive"></i> Documents & Uploads</h1>
+                </header>
+                <div class="card">
+                    <h3>Upload New Document</h3>
+                    <p>Share insurance details, ID, previous lab results, etc.</p>
+                    <input type="file" id="doc-upload">
+                    <button class="btn" style="margin-top:10px;"><i class="fas fa-upload"></i> Upload File</button>
+                </div>
+                 <div class="card">
+                    <h3>Your AI-Generated Reports</h3>
+                    <ul class="document-list">
+                        <li><i class="fas fa-file-pdf pdf"></i> MirrorBrain Report MB-20231026-XYZ (Oct 26, 2023) - <a href="#">Download</a></li>
+                        <li><i class="fas fa-file-pdf pdf"></i> MirrorBrain Report MB-20230610-ABC (Jun 10, 2023) - <a href="#">Download</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Documents Shared by Your Doctor</h3>
+                    <ul class="document-list">
+                        <li><i class="fas fa-file-alt doc"></i> Post-Consultation Summary (Oct 15, 2023) - <a href="#">View</a></li>
+                        <li><i class="fas fa-file-image jpg"></i> Patient Information Leaflet.jpg - <a href="#">View</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 8. MirrorBrain AI Settings (Advanced Tab) -->
+            <section id="ai-settings" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-cogs"></i> MirrorBrain AI Settings</h1>
+                </header>
+                 <div class="card">
+                    <h3>Configure Your AI Experience</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label for="default-ai-model"><i class="fas fa-robot"></i> Set Default AI Model:</label>
+                            <select id="default-ai-model">
+                                <option value="R1-50B">R1-50B – Diagnostic Expert AI</option>
+                                <option value="L2-4B">L2-4B – Lightweight Screener</option>
+                                <option value="X3-20B">X3-20B – Specialist Evaluator</option>
+                            </select>
+                        </div>
+                        <div class="form-group toggle-group">
+                            <label><i class="fas fa-sync-alt"></i> Enable Auto-Run on Scan Upload:</label>
+                            <label class="switch">
+                                <input type="checkbox" id="autoRunAi">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group toggle-group">
+                            <label><i class="fas fa-brain"></i> Toggle Deep Reasoning Mode (R1-50B only):</label>
+                            <label class="switch">
+                                <input type="checkbox" id="deepReasoning" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group toggle-group">
+                            <label><i class="fas fa-user-shield"></i> Share AI Results with Doctor (default: Yes):</label>
+                            <label class="switch">
+                                <input type="checkbox" id="shareAiResults" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                         <button type="button" class="btn"><i class="fas fa-save"></i> Save AI Preferences</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 9. Personal Health Journal -->
+            <section id="health-journal" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-book-medical"></i> Personal Health Journal</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-edit"></i> New Journal Entry (Today)</h3>
+                        <label for="mood-selector">How are you feeling today?</label>
+                        <select id="mood-selector">
+                            <option>😀 Excellent</option>
+                            <option>🙂 Good</option>
+                            <option selected>😐 Okay</option>
+                            <option>🙁 Not Great</option>
+                            <option>😞 Poor</option>
+                        </select>
+                        <label for="symptoms-journal">Note any symptoms or observations:</label>
+                        <textarea id="symptoms-journal" rows="4" placeholder="e.g., Felt a bit forgetful this morning, slight headache in the afternoon..."></textarea>
+                        <div class="form-group toggle-group">
+                            <label><i class="fas fa-share-square"></i> Share this entry with my doctor:</label>
+                            <label class="switch">
+                                <input type="checkbox" id="shareJournalEntry">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <button class="btn"><i class="fas fa-save"></i> Save Entry</button>
+                    </div>
+                    <div class="card">
+                        <h3>Previous Entries</h3>
+                        <ul class="journal-entries">
+                            <li><strong>Oct 25, 2023 (😐 Okay):</strong> Mild fatigue. Shared with doctor. <a href="#" class="action-link">View</a></li>
+                            <li><strong>Oct 24, 2023 (🙂 Good):</strong> Felt quite alert today. <a href="#" class="action-link">View</a></li>
+                        </ul>
+                    </div>
+                    <div class="card full-width">
+                        <h3>Journal vs. Diagnosis Trend Graph</h3>
+                         <img src="https://via.placeholder.com/700x300?text=Journal+vs.+Symptom+Trend" alt="Journal Trend Graph" class="placeholder-graph">
+                        <p class="text-center"><em>(e.g., Mood correlation with symptom severity reported in AI diagnostics)</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Settings & Profile -->
+            <section id="profile-settings" class="dashboard-section">
+                 <header class="section-header">
+                    <h1><i class="fas fa-user-cog"></i> Settings & Profile</h1>
+                </header>
+                <div class="card">
+                    <h3>Edit Personal Information</h3>
+                    <form>
+                        <label for="patFullName">Full Name:</label>
+                        <input type="text" id="patFullName" value="[Patient Full Name]">
+                        <label for="patDob">Date of Birth:</label>
+                        <input type="date" id="patDob" value="1960-05-15">
+                        <label for="patEmail">Email:</label>
+                        <input type="email" id="patEmail" value="patient@example.com">
+                        <label for="patPhone">Phone:</label>
+                        <input type="tel" id="patPhone" value="+1-555-0100">
+                        <label for="patEmergencyContact">Emergency Contact (Name & Phone):</label>
+                        <input type="text" id="patEmergencyContact" value="Jane Doe, +1-555-0101">
+                        <button type="submit" class="btn"><i class="fas fa-save"></i> Update Profile</button>
+                    </form>
+                </div>
+                 <div class="card">
+                    <h3>Security & Preferences</h3>
+                    <button class="btn btn-secondary"><i class="fas fa-shield-alt"></i> Enable 2-Factor Authentication</button>
+                    <div class="form-group" style="margin-top:20px;">
+                        <label for="language-pref"><i class="fas fa-language"></i> Language Preference:</label>
+                        <select id="language-pref">
+                            <option>English (US)</option>
+                            <option>Español</option>
+                            <option>Français</option>
+                        </select>
+                    </div>
+                     <div style="margin-top:20px;">
+                         <p><i class="fas fa-file-contract"></i> <strong>MirrorBrain AI Consent Agreement:</strong></p>
+                         <p>You have agreed to the terms of use for MirrorBrain AI analysis. <a href="#" class="action-link">View Agreement</a></p>
+                     </div>
+                </div>
+            </section>
+
+            <!-- 11. Help & Support -->
+            <section id="help-support" class="dashboard-section">
+                <header class="section-header">
+                    <h1><i class="fas fa-life-ring"></i> Help & Support</h1>
+                </header>
+                 <div class="tool-grid">
+                     <div class="tool-card support-card">
+                        <i class="fas fa-question-circle fa-2x"></i>
+                        <h3>FAQs about MirrorBrain AI</h3>
+                        <p>Find answers to common questions about how the AI works and your reports.</p>
+                        <button class="btn btn-secondary">View FAQs</button>
+                    </div>
+                    <div class="tool-card support-card">
+                        <i class="fas fa-headset fa-2x"></i>
+                        <h3>Contact Support</h3>
+                        <p>Get help with technical issues or dashboard usage.</p>
+                        <button class="btn btn-secondary">Submit a Ticket</button>
+                    </div>
+                    <div class="tool-card support-card">
+                        <i class="fas fa-video fa-2x"></i>
+                        <h3>Video Tutorials</h3>
+                        <p>Watch guides on uploading data, understanding reports, and more.</p>
+                        <button class="btn btn-secondary">Watch Videos</button>
+                    </div>
+                     <div class="tool-card support-card">
+                        <i class="fas fa-bug fa-2x"></i>
+                        <h3>Report a Bug</h3>
+                        <p>Encountered an issue? Let us know so we can fix it.</p>
+                        <button class="btn btn-danger">Report Bug</button>
+                    </div>
+                </div>
+                <!-- Optional: AI Help Assistant -->
+                <div class="card ai-help-assistant-placeholder" style="margin-top:30px;">
+                    <h4><i class="fas fa-robot"></i> Need help understanding your diagnosis? Ask MirrorBrain! (Beta)</h4>
+                    <input type="text" placeholder="e.g., What does 'MCI' mean?">
+                    <button class="btn btn-info">Ask AI Helper</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="pdscript.js"></script>
+</body>
+</html>
