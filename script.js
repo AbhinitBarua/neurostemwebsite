@@ -77,69 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    const birdsContainer = document.getElementById('birds-animation-container');
-    const numberOfBirds = 10; // Adjust how many birds you want at a time (roughly)
-    const minBirdDelay = 500; // Minimum delay between new birds in ms
-    const maxBirdDelay = 3000; // Maximum delay
-
-    function createBird() {
-        if (!birdsContainer) return;
-
-        const bird = document.createElement('div');
-        bird.classList.add('bird');
-        bird.innerHTML = ''; // Bird emoji 🐦 (U+1F426). You can use others like 🕊️ (U+1F54A)
-
-        // Randomize properties
-        const startY = Math.random() * 70 + 10; // Start Y position (10% to 80% of viewport height)
-        const scale = Math.random() * 0.5 + 0.5; // Scale (0.5x to 1.0x)
-        const duration = Math.random() * 10 + 15; // Flight duration (15s to 25s)
-        const yOffsetVariance = (Math.random() - 0.5) * 50; // Slight vertical drift up/down during flight
-
-        bird.style.top = `${startY}%`;
-        bird.style.setProperty('--bird-scale', scale);
-        bird.style.setProperty('--translate-y-offset', `${yOffsetVariance}px`);
-        bird.style.animationDuration = `${duration}s`;
-        
-        // Random direction (left-to-right or right-to-left)
-        if (Math.random() > 0.5) {
-            bird.style.left = '-50px'; // Start off-screen left
-        } else {
-            bird.style.right = '-50px'; // Start off-screen right
-            bird.style.transform = 'scaleX(-1)'; // Flip bird horizontally
-             // Adjust animation for right-to-left
-            bird.style.animationName = 'flyAcrossReversed'; // We'll need a new keyframe for this
-        }
-
-
-        birdsContainer.appendChild(bird);
-
-        // Remove bird after animation finishes
-        bird.addEventListener('animationend', () => {
-            bird.remove();
-        });
-    }
-
-    // Generate birds periodically
-    function spawnBirds() {
-        if (document.hidden) { // Don't spawn if tab is not visible
-            setTimeout(spawnBirds, maxBirdDelay);
-            return;
-        }
-        createBird();
-        const nextBirdTime = Math.random() * (maxBirdDelay - minBirdDelay) + minBirdDelay;
-        setTimeout(spawnBirds, nextBirdTime);
-    }
-
-    if (birdsContainer) { // Only start if the container exists
-       spawnBirds(); // Start the bird spawning
-    }
-
-
-    // Placeholder for "Start Diagnosis"
-    const startDiagnosisBtn = document.querySelector('a[href="#diagnosis-placeholder"]');
-    // ... (rest of your script.js) ...
-});
-    
     // Placeholder for "Start Diagnosis"
     const startDiagnosisBtn = document.querySelector('a[href="#diagnosis-placeholder"]');
     if (startDiagnosisBtn) {
