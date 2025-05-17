@@ -82,6 +82,7 @@ header .container {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center; /* Add or ensure this is present to vertically align the <li> items */
 }
 
 .nav-links li {
@@ -94,20 +95,29 @@ header .container {
     font-weight: 500;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     position: relative;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */ /* Comment out or remove this line */
+    
+    /* Add symmetrical vertical padding */
+    padding-top: 5px;    /* New line */
+    padding-bottom: 5px; /* New line (or modify existing if you just change value) */
 }
 
+/* The .nav-links a::after rule can remain the same if the above padding works for the underline */
 .nav-links a::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
+    width: 0; /* This gets animated by JS for the active link */
+    height: 2px; /* Height of the underline */
+    bottom: 0; /* Positions the underline at the bottom of the 'a' tag's padding box */
+               /* Since 'a' now has padding-bottom: 5px, the underline will sit in the lower part of this space */
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--primary-color);
     transition: width 0.3s ease;
 }
+
+/* Modify the .nav-links rule (the <ul> element) */
+
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary-color);
