@@ -3,907 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroStem - Cognitive Rehabilitation Engine</title>
+    <title>NeuroStem – Cognitive Rehabilitation Engine</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/png" href="neurostem loho.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="loading-screen">
-        <div class="brain-loader">
-            <div class="pulse"></div>
-            <svg viewBox="0 0 100 100">
-                <path d="M50,20 C70,20 80,40 80,50 C80,60 70,80 50,80 C30,80 20,60 20,50 C20,40 30,20 50,20 Z" class="brain-path"></path>
-                <path d="M30,40 Q40,20 50,40 Q60,20 70,40" class="brain-path"></path>
-                <path d="M30,60 Q40,80 50,60 Q60,80 70,60" class="brain-path"></path>
-            </svg>
-        </div>
-        <p>Initializing NeuroStem...</p>
-    </div>
+    <div class="background-animation"></div>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <header class="glass-nav">
-        <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 100 100">
-                    <path d="M50,20 C70,20 80,40 80,50 C80,60 70,80 50,80 C30,80 20,60 20,50 C20,40 30,20 50,20 Z" fill="none" stroke="currentColor"></path>
-                    <path d="M30,40 Q40,20 50,40 Q60,20 70,40" fill="none" stroke="currentColor"></path>
-                    <path d="M30,60 Q40,80 50,60 Q60,80 70,60" fill="none" stroke="currentColor"></path>
-                </svg>
-            </div>
-            <h1>NeuroStem</h1>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">🧠 NeuroStem</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#tools-features">Tools & Features</a></li>
+                    <li><a href="#disorders">Disorders</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login" class="btn btn-secondary">Login / Sign Up</a></li>
+                </ul>
+                <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+            </nav>
         </div>
-        <button class="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav>
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#tools">Tools & Features</a></li>
-                <li><a href="#disorders">Disorders Covered</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#login" class="btn btn-login">Login / Sign Up</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="glitch" data-text="Revolutionizing Neurology with Early AI Detection">Revolutionizing Neurology with Early AI Detection</h1>
-                <p>Detect and understand neurological disorders early using intelligent, accessible technology.</p>
-                <div class="cta-buttons">
-                    <a href="#diagnosis" class="btn btn-primary">Start Diagnosis</a>
-                    <a href="#tools" class="btn btn-secondary">Explore Tools</a>
-                    <a href="#join" class="btn btn-outline">Join as Doctor / Researcher</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="brain-model">
-                    <div class="brain-container">
-                        <div class="neuron-connection n1"></div>
-                        <div class="neuron-connection n2"></div>
-                        <div class="neuron-connection n3"></div>
-                        <div class="neuron-connection n4"></div>
-                        <div class="neuron-point p1"></div>
-                        <div class="neuron-point p2"></div>
-                        <div class="neuron-point p3"></div>
-                        <div class="neuron-point p4"></div>
-                        <div class="neuron-point p5"></div>
-                        <div class="brain-pulse"></div>
-                    </div>
-                </div>
-                <div class="data-circles">
-                    <div class="data-circle dc1">EEG Data</div>
-                    <div class="data-circle dc2">MRI Scans</div>
-                    <div class="data-circle dc3">Cognitive Tests</div>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll to explore</span>
-                <div class="mouse">
-                    <div class="mouse-wheel"></div>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1 class="animate-on-scroll">Revolutionizing Neurology with Early AI Detection.</h1>
+                <p class="subheadline animate-on-scroll">Detect and understand neurological disorders early using intelligent, accessible technology.</p>
+                <div class="cta-buttons animate-on-scroll">
+                    <a href="#diagnosis-placeholder" class="btn btn-primary">Start Diagnosis</a>
+                    <a href="#tools-features" class="btn">Explore Tools</a>
+                    <a href="#login" class="btn">Join as Doctor / Researcher</a>
                 </div>
             </div>
         </section>
 
-        <section id="how-it-works" class="how-it-works">
-            <div class="section-heading">
-                <h2>⚙️ How It Works</h2>
-                <p>Our AI Diagnostic Pipeline</p>
-            </div>
-            <div class="pipeline">
-                <div class="pipeline-item" data-step="1">
-                    <div class="pipeline-icon">
-                        <i class="fas fa-file-medical"></i>
+        <section id="how-it-works" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">⚙️ How It Works</h2>
+                <p class="section-subtitle animate-on-scroll">Our AI Diagnostic Pipeline</p>
+                <div class="pipeline-flow">
+                    <div class="pipeline-step animate-on-scroll">
+                        <div class="pipeline-icon"><i class="fas fa-database"></i></div>
+                        <h3>1. Input Patient Data</h3>
+                        <p>Symptoms, EEG/MRI scans, medical history, caregiver reports.</p>
                     </div>
-                    <div class="pipeline-content">
-                        <h3>Input Patient Data</h3>
-                        <p>Symptoms, EEG/MRI scans, medical history, caregiver reports</p>
+                    <div class="pipeline-arrow animate-on-scroll"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-step animate-on-scroll">
+                        <div class="pipeline-icon"><i class="fas fa-brain"></i></div>
+                        <h3>2. NeuroScan AI Engine</h3>
+                        <p>Deep learning-based classifier for brain activity and symptom mapping.</p>
                     </div>
-                </div>
-                <div class="pipeline-item" data-step="2">
-                    <div class="pipeline-icon">
-                        <i class="fas fa-brain"></i>
+                    <div class="pipeline-arrow animate-on-scroll"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-step animate-on-scroll">
+                        <div class="pipeline-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>3. Condition Prediction</h3>
+                        <p>Probability-based outcomes for each disorder.</p>
                     </div>
-                    <div class="pipeline-content">
-                        <h3>NeuroScan AI Engine</h3>
-                        <p>Deep learning-based classifier for brain activity and symptom mapping</p>
+                    <div class="pipeline-arrow animate-on-scroll"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-step animate-on-scroll">
+                        <div class="pipeline-icon"><i class="fas fa-notes-medical"></i></div>
+                        <h3>4. Recommendation Module</h3>
+                        <p>Suggests next steps: medical tests, doctor consults, lifestyle changes.</p>
                     </div>
-                </div>
-                <div class="pipeline-item" data-step="3">
-                    <div class="pipeline-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="pipeline-content">
-                        <h3>Condition Prediction</h3>
-                        <p>Probability-based outcomes for each disorder</p>
-                    </div>
-                </div>
-                <div class="pipeline-item" data-step="4">
-                    <div class="pipeline-icon">
-                        <i class="fas fa-clipboard-list"></i>
-                    </div>
-                    <div class="pipeline-content">
-                        <h3>Recommendation Module</h3>
-                        <p>Suggests next steps: medical tests, doctor consults, lifestyle changes</p>
+                    <div class="pipeline-arrow animate-on-scroll"><i class="fas fa-arrow-right"></i></div>
+                    <div class="pipeline-step animate-on-scroll">
+                        <div class="pipeline-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>5. Tracking and Reports</h3>
+                        <p>Patient’s neurological state tracked over time.</p>
                     </div>
                 </div>
-                <div class="pipeline-item" data-step="5">
-                    <div class="pipeline-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="pipeline-content">
-                        <h3>Tracking and Reports</h3>
-                        <p>Patient's neurological state tracked over time</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flowchart">
-                <div class="flowchart-visual">
-                    <!-- Interactive flowchart will be rendered here via JS -->
-                </div>
+                <p class="animate-on-scroll" style="text-align: center; margin-top: 20px;"><i>Visual: Imagine an interactive flowchart here showcasing the data flow.</i></p>
             </div>
         </section>
 
-        <section id="tools" class="tools-section">
-            <div class="section-heading">
-                <h2>🛠️ Tools & Features</h2>
-                <p>Advanced solutions for neurological health</p>
-            </div>
-            
-            <div class="tools-tabs">
-                <button class="tab-btn active" data-tab="diagnostic">🔍 Diagnostic Suite</button>
-                <button class="tab-btn" data-tab="analytics">📊 Advanced Analytics</button>
-                <button class="tab-btn" data-tab="specialized">💡 Specialized Modules</button>
-                <button class="tab-btn" data-tab="security">🔐 Security & Accessibility</button>
-                <button class="tab-btn" data-tab="stimulation">🧠 Tri-Layer Stimulation</button>
-                <button class="tab-btn" data-tab="mirror">🤖 "Mirror Mind" AI</button>
-            </div>
-            
-            <div class="tab-content">
-                <div class="tab-pane active" id="diagnostic">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-search-plus"></i></div>
-                            <h4>NeuroScan AI</h4>
-                            <p>Core detection system for multiple disorders</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-brain"></i></div>
-                            <h4>Cognitive Decline Detector</h4>
-                            <p>Tracks memory and cognition shifts</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-clock"></i></div>
-                            <h4>NeuroTrack Timeline</h4>
-                            <p>Timeline-based neurological health monitoring</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-map"></i></div>
-                            <h4>MoodMap</h4>
-                            <p>AI-powered mental state analyzer (depression, anxiety, emotional instability)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="analytics">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-wave-square"></i></div>
-                            <h4>EEG Pattern Reader</h4>
-                            <p>Visual + AI feedback on brainwave patterns</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-x-ray"></i></div>
-                            <h4>MRI/CT Image Analyzer</h4>
-                            <p>Deep learning-based scan interpreter</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-heartbeat"></i></div>
-                            <h4>Biometric Health Sync</h4>
-                            <p>Integrate with wearables for stress and tremor monitoring</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-fire"></i></div>
-                            <h4>Symptom Heatmap Generator</h4>
-                            <p>Visualize intensity of reported issues over time</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="specialized">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-child"></i></div>
-                            <h4>Pediatric Brain Development Tracker</h4>
-                            <p>Autism spectrum and developmental delay detection</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-seedling"></i></div>
-                            <h4>NeuroGrowth Insight</h4>
-                            <p>Predictive tool for long-term brain health trends</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
-                            <h4>Cognitive Score Simulator</h4>
-                            <p>Emulates cognitive performance based on data</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-comment-medical"></i></div>
-                            <h4>Emotionally Intelligent Rehab Companion</h4>
-                            <p>AI that adapts to patient's emotional state</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="security">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-lock"></i></div>
-                            <h4>End-to-end encryption</h4>
-                            <p>All patient data is fully secured</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-user-shield"></i></div>
-                            <h4>Role-based Dashboards</h4>
-                            <p>For patients, doctors, caregivers, researchers</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <h4>Cloud Storage</h4>
-                            <p>With versioned backups</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-wifi"></i></div>
-                            <h4>Offline Mode</h4>
-                            <p>For basic scanning in rural clinics</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="stimulation">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-broadcast-tower"></i></div>
-                            <h4>EEG Headset</h4>
-                            <p>Reads attention/focus level or motor intent</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-hand-sparkles"></i></div>
-                            <h4>Haptic Gloves/Socks</h4>
-                            <p>Provide muscle stimulation based on neural signals</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-camera"></i></div>
-                            <h4>Facial Camera + HRV Sensor</h4>
-                            <p>Detect stress/engagement and adapt tasks</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-sitemap"></i></div>
-                            <h4>Remote Neuronet</h4>
-                            <p>Swarm-Rehab System for collaborative recovery</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tab-pane" id="mirror">
-                    <div class="tool-grid">
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-robot"></i></div>
-                            <h4>AI Digital Twin</h4>
-                            <p>Real-time model of patient's brain behavior</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-sliders-h"></i></div>
-                            <h4>Adaptive Exercise System</h4>
-                            <p>Customizes difficulty, modality and pace</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-moon"></i></div>
-                            <h4>SleepSync Recovery</h4>
-                            <p>Promotes neuroplasticity during sleep phases</p>
-                        </div>
-                        <div class="tool-card">
-                            <div class="tool-icon"><i class="fas fa-box"></i></div>
-                            <h4>Modular NeuroBox</h4>
-                            <p>Low-cost kit for rural use</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="disorders" class="disorders-section">
-            <div class="section-heading">
-                <h2>🧬 Disorders Covered</h2>
-                <p>Comprehensive support for various neurological conditions</p>
-            </div>
-            
-            <div class="disorders-grid">
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h4>Alzheimer's Disease</h4>
-                    <div class="card-hover">
-                        <p>Early detection and tracking of cognitive decline and memory loss</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-hand-tremor"></i>
-                    </div>
-                    <h4>Parkinson's Disease</h4>
-                    <div class="card-hover">
-                        <p>Monitoring of tremors, rigidity, and movement disorders</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4>Epilepsy</h4>
-                    <div class="card-hover">
-                        <p>Seizure prediction and management tools</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h4>Multiple Sclerosis</h4>
-                    <div class="card-hover">
-                        <p>Tracking nerve damage and symptom progression</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-running"></i>
-                    </div>
-                    <h4>ALS</h4>
-                    <div class="card-hover">
-                        <p>Motor neuron disease detection and progression tracking</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h4>Autism Spectrum Disorders</h4>
-                    <div class="card-hover">
-                        <p>Early detection and personalized intervention plans</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-head-side-virus"></i>
-                    </div>
-                    <h4>Traumatic Brain Injury</h4>
-                    <div class="card-hover">
-                        <p>Recovery monitoring and rehabilitation assistance</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-low-vision"></i>
-                    </div>
-                    <h4>Chronic Fatigue & Brain Fog</h4>
-                    <div class="card-hover">
-                        <p>Assessment and management strategies</p>
-                    </div>
-                </div>
-                
-                <div class="disorder-card">
-                    <div class="disorder-icon">
-                        <i class="fas fa-memory"></i>
-                    </div>
-                    <h4>Mild Cognitive Impairment</h4>
-                    <div class="card-hover">
-                        <p>Early intervention to prevent further decline</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="research-section">
-            <div class="section-heading">
-                <h2>🧪 Research & Model Validation</h2>
-                <p>Scientifically backed and clinically validated</p>
-            </div>
-            
-            <div class="research-content">
-                <div class="data-sources">
-                    <h3>Based on datasets from:</h3>
-                    <ul>
-                        <li>National Institutes of Health (NIH)</li>
-                        <li>Alzheimer's Disease Neuroimaging Initiative (ADNI)</li>
-                        <li>Kaggle neurological datasets</li>
-                        <li>Open hospital records (anonymized)</li>
-                    </ul>
-                </div>
-                
-                <div class="validation">
-                    <h3>Cross-validated with:</h3>
-                    <p>Neurologist-reviewed case studies from top medical institutions</p>
-                </div>
-                
-                <div class="performance">
-                    <h3>Key Performance Stats:</h3>
-                    <div class="stat-cards">
-                        <div class="stat-card">
-                            <div class="stat-value">98.2<span>%</span></div>
-                            <div class="stat-label">Alzheimer's early detection accuracy</div>
-                            <div class="stat-bar" style="width: 98.2%"></div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-value">94.5<span>%</span></div>
-                            <div class="stat-label">Epilepsy pattern detection from EEGs</div>
-                            <div class="stat-bar" style="width: 94.5%"></div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-value">96.7<span>%</span></div>
-                            <div class="stat-label">ALS diagnosis precision</div>
-                            <div class="stat-bar" style="width: 96.7%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="research-downloads">
-                    <h3>Resources:</h3>
-                    <div class="download-buttons">
-                        <a href="#" class="btn btn-outline">Download Whitepapers</a>
-                        <a href="#" class="btn btn-outline">Clinical Validation Results</a>
-                    </div>
-                </div>
-                
-                <div class="ai-models">
-                    <h3>NeuroStem's MirrorBrain AI Models:</h3>
-                    <div class="model-cards">
-                        <div class="model-card">
-                            <h4>L2-4B</h4>
-                            <p>Trained on 4 billion parameters</p>
-                            <div class="model-complexity">
-                                <span class="complexity-bar"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="model-card">
-                            <h4>X3-20B</h4>
-                            <p>Trained on 20 billion parameters</p>
-                            <div class="model-complexity">
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="model-card">
-                            <h4>R1-50B</h4>
-                            <p>Trained on 50 billion parameters</p>
-                            <div class="model-complexity">
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                                <span class="complexity-bar"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="research-collaboration">
-                    <h3>Join Our Research:</h3>
-                    <a href="#" class="btn btn-primary">Collaboration Registration</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section">
-            <div class="section-heading">
-                <h2>💬 Testimonials</h2>
-                <p>What our users say about NeuroStem</p>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>NeuroStem gave us a head start in my father's Parkinson's diagnosis. Game-changer.</p>
-                        </div>
-                        <div class="author">
-                            <div class="author-avatar">
-                                <img src="/api/placeholder/60/60" alt="Aarav Mehta">
-                            </div>
-                            <div class="author-info">
-                                <h4>Aarav Mehta</h4>
-                                <p>Son & Caregiver</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>I use NeuroStem with every new neurological case. Reliable, fast, accurate.</p>
-                        </div>
-                        <div class="author">
-                            <div class="author-avatar">
-                                <img src="/api/placeholder/60/60" alt="Dr. Sayali Roy">
-                            </div>
-                            <div class="author-info">
-                                <h4>Dr. Sayali Roy</h4>
-                                <p>Neurologist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>The early detection of my son's autism through NeuroStem allowed us to start interventions two years earlier than we might have otherwise.</p>
-                        </div>
-                        <div class="author">
-                            <div class="author-avatar">
-                                <img src="/api/placeholder/60/60" alt="Maya Johnson">
-                            </div>
-                            <div class="author-info">
-                                <h4>Maya Johnson</h4>
-                                <p>Parent</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </section>
-
-        <section id="doctor-dashboard" class="dashboard-section">
-            <div class="section-heading">
-                <h2>📈 For Doctors & Researchers</h2>
-                <p>Powerful tools for healthcare professionals</p>
-            </div>
-            
-            <div class="dashboard-tabs">
-                <button class="dash-tab active" data-tab="doctors">Doctor Dashboard</button>
-                <button class="dash-tab" data-tab="researchers">Researcher Tools</button>
-            </div>
-            
-            <div class="dashboard-content">
-                <div class="dash-tab-content active" id="doctors-tab">
-                    <div class="dashboard-preview">
-                        <div class="dashboard-img">
-                            <img src="/api/placeholder/800/450" alt="Doctor Dashboard Preview">
-                            <div class="feature-point" style="top: 30%; left: 20%">
-                                <span>1</span>
-                                <div class="feature-tooltip">Patient Case Management</div>
-                            </div>
-                            <div class="feature-point" style="top: 45%; left: 70%">
-                                <span>2</span>
-                                <div class="feature-tooltip">Real-time Analysis Results</div>
-                            </div>
-                            <div class="feature-point" style="top: 70%; left: 40%">
-                                <span>3</span>
-                                <div class="feature-tooltip">Treatment Recommendation Engine</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-features">
+        <section id="tools-features" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🛠️ Tools & Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>🔍 Diagnostic Suite</h3>
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Review patient cases</li>
-                            <li><i class="fas fa-check-circle"></i> Generate smart reports</li>
-                            <li><i class="fas fa-check-circle"></i> Collaborate with caregivers</li>
-                            <li><i class="fas fa-check-circle"></i> Track neural development</li>
-                            <li><i class="fas fa-check-circle"></i> Access historical data</li>
+                            <li>NeuroScan AI – Core detection system</li>
+                            <li>Cognitive Decline Detector</li>
+                            <li>NeuroTrack Timeline</li>
+                            <li>MoodMap – AI-powered mental state analyzer</li>
                         </ul>
                     </div>
-                </div>
-                
-                <div class="dash-tab-content" id="researchers-tab">
-                    <div class="dashboard-preview">
-                        <div class="dashboard-img">
-                            <img src="/api/placeholder/800/450" alt="Researcher Tools Preview">
-                            <div class="feature-point" style="top: 20%; left: 60%">
-                                <span>1</span>
-                                <div class="feature-tooltip">Dataset Management</div>
-                            </div>
-                            <div class="feature-point" style="top: 50%; left: 30%">
-                                <span>2</span>
-                                <div class="feature-tooltip">AI Output Visualizer</div>
-                            </div>
-                            <div class="feature-point" style="top: 75%; left: 70%">
-                                <span>3</span>
-                                <div class="feature-tooltip">Exportable Analytics Tools</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-features">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>📊 Advanced Analytics</h3>
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Anonymized data access</li>
-                            <li><i class="fas fa-check-circle"></i> Real-time AI output visualizer</li>
-                            <li><i class="fas fa-check-circle"></i> Exportable prediction graphs & tables</li>
-                            <li><i class="fas fa-check-circle"></i> Collaborative annotation tools</li>
-                            <li><i class="fas fa-check-circle"></i> Model training workbench</li>
+                            <li>EEG Pattern Reader</li>
+                            <li>MRI/CT Image Analyzer</li>
+                            <li>Biometric Health Sync</li>
+                            <li>Symptom Heatmap Generator</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>💡 Specialized Modules</h3>
+                        <ul>
+                            <li>Pediatric Brain Development Tracker</li>
+                            <li>NeuroGrowth Insight</li>
+                            <li>Cognitive Score Simulator</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>🔐 Security & Accessibility</h3>
+                        <ul>
+                            <li>End-to-end encryption</li>
+                            <li>Role-based dashboards</li>
+                            <li>Cloud storage with versioned backups</li>
+                            <li>Offline mode (basic scanning)</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="login" class="login-section">
-            <div class="section-heading">
-                <h2>🧑‍💻 Login / Sign Up</h2>
-                <p>Join our platform to access all features</p>
-            </div>
-            
-            <div class="login-container">
-                <div class="login-options">
-                    <div class="roles">
-                        <h3>Select your role:</h3>
-                        <div class="role-buttons">
-                            <button class="role-btn active">
-                                <i class="fas fa-user-injured"></i>
-                                <span>Patient</span>
-                            </button>
-                            <button class="role-btn">
-                                <i class="fas fa-user-md"></i>
-                                <span>Doctor</span>
-                            </button>
-                            <button class="role-btn">
-                                <i class="fas fa-microscope"></i>
-                                <span>Researcher</span>
-                            </button>
-                            <button class="role-btn">
-                                <i class="fas fa-hospital"></i>
-                                <span>Institution</span>
-                            </button>
-                        </div>
+        <section id="complete-features" class="section-padding alt-bg">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🚀 Complete Features Deep Dive</h2>
+                 <div class="complete-features-grid">
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>Tri-Layer Stimulation System</h4>
+                        <p>EEG, haptic feedback, and emotional AI combine to promote neuroplasticity uniquely.</p>
                     </div>
-                    
-                    <div class="login-form">
-                        <form>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="youremail@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" placeholder="••••••••">
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Login</button>
-                                <a href="#" class="create-account">Create Account</a>
-                            </div>
-                        </form>
-                        
-                        <div class="alternative-login">
-                            <p>or login with</p>
-                            <div class="social-logins">
-                                <button class="social-btn google">
-                                    <i class="fab fa-google"></i>
-                                </button>
-                                <button class="social-btn apple">
-                                    <i class="fab fa-apple"></i>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>"Mirror Mind" AI Engine</h4>
+                        <p>Real-time AI digital twin of patient's brain behavior, predicting optimal cognitive exercises.</p>
                     </div>
-                </div>
-                
-                <div class="login-features">
-                    <h3>Account Benefits</h3>
-                    <ul>
-                        <li><i class="fas fa-shield-alt"></i> Secure login with 2FA</li>
-                        <li><i class="fas fa-history"></i> Access your history and reports</li>
-                        <li><i class="fas fa-folder"></i> Store and organize your data</li>
-                        <li><i class="fas fa-users"></i> Collaborate with your care team</li>
-                        <li><i class="fas fa-bell"></i> Receive important alerts and updates</li>
-                    </ul>
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>Remote Neuronet: Swarm-Rehab System</h4>
+                        <p>Multi-user cognitive games for collaborative recovery, enhancing social neuroplasticity.</p>
+                    </div>
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>Modular NeuroBox (Low-Cost Kit)</h4>
+                        <p>Offline, solar-powered kit with EEG, tablet, and haptic band for rural use.</p>
+                    </div>
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>Emotionally Intelligent Rehab Companion</h4>
+                        <p>GPT-powered chatbot that adapts guidance based on patient's detected mood.</p>
+                    </div>
+                    <div class="feature-detail-card animate-on-scroll">
+                        <h4>SleepSync Neuro Recovery Mode</h4>
+                        <p>Wearable promoting neuroplasticity during sleep via timed sensory cues.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
-            <div class="section-heading">
-                <h2>📞 Contact Us</h2>
-                <p>Get in touch with our team</p>
+        <section id="disorders" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🧬 Disorders Covered</h2>
+                <div class="disorders-grid">
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-brain"></i> Alzheimer’s Disease</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-walking"></i> Parkinson’s Disease</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-bolt"></i> Epilepsy</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-diagnoses"></i> Multiple Sclerosis</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-lungs"></i> ALS (Motor Neuron Disease)</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-puzzle-piece"></i> Autism Spectrum Disorders</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-head-side-cough"></i> Traumatic Brain Injury (TBI)</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-battery-quarter"></i> Chronic Fatigue & Brain Fog</div>
+                    <div class="disorder-item animate-on-scroll"><i class="fas fa-user-md"></i> Mild Cognitive Impairment (MCI)</div>
+                </div>
             </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>neurosteminfo@gmail.com</p>
+        </section>
+
+        <section id="research" class="section-padding alt-bg">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🧪 Research & Model Validation</h2>
+                <p class="animate-on-scroll">Based on datasets from NIH, ADNI, Kaggle, open hospital records.</p>
+                <p class="animate-on-scroll">Cross-validated with neurologist-reviewed case studies.</p>
+                <div class="stats-grid">
+                    <div class="stat-item animate-on-scroll">
+                        <h3>98.2%</h3>
+                        <p>Accuracy (Alzheimer’s early detection)</p>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>123 Brain Way, Innovation District, Tech City</p>
+                    <div class="stat-item animate-on-scroll">
+                        <h3>94.5%</h3>
+                        <p>Epilepsy pattern detection (EEGs)</p>
                     </div>
+                </div>
+                <div class="research-buttons animate-on-scroll">
+                    <a href="#" class="btn">Download Whitepapers</a>
+                    <a href="#contact" class="btn">Collaborate on Research</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="mirrorbrain-ai" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🧠 NeuroStem's MirrorBrain AI</h2>
+                 <div class="ai-models-grid">
+                    <div class="ai-model-card animate-on-scroll">
+                        <h3>L2-4B</h3>
+                        <p>Trained on <strong>4 billion</strong> parameters</p>
+                    </div>
+                    <div class="ai-model-card animate-on-scroll">
+                        <h3>X3-20B</h3>
+                        <p>Trained on <strong>20 billion</strong> parameters</p>
+                    </div>
+                    <div class="ai-model-card animate-on-scroll">
+                        <h3>R1-50B</h3>
+                        <p>Trained on <strong>50 billion</strong> parameters</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">💬 Testimonials</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"NeuroStem gave us a head start in my father's Parkinson’s diagnosis. Game-changer."</p>
+                        <h4>— Aarav Mehta, Son & Caregiver</h4>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"I use NeuroStem with every new neurological case. Reliable, fast, accurate."</p>
+                        <h4>— Dr. Sayali Roy, Neurologist</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="professionals" class="section-padding alt-bg">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">📈 For Doctors & Researchers</h2>
+                <div class="professionals-columns">
+                    <div class="professional-column animate-on-scroll">
+                        <h3>Doctor Dashboard</h3>
+                        <ul>
+                            <li>Review patient cases</li>
+                            <li>Generate smart reports</li>
+                            <li>Collaborate with caregivers</li>
+                        </ul>
+                    </div>
+                    <div class="professional-column animate-on-scroll">
+                        <h3>Researcher Tools</h3>
+                        <ul>
+                            <li>Anonymized data access</li>
+                            <li>Real-time AI output visualizer</li>
+                            <li>Exportable prediction graphs & tables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🧑‍💻 Login / Sign Up</h2>
+                <p class="animate-on-scroll">Select your role to get started:</p>
+                <div class="roles-container animate-on-scroll">
+                    <button class="role-btn">Patient</button>
+                    <button class="role-btn">Doctor</button>
+                    <button class="role-btn">Researcher</button>
+                    <button class="role-btn">Institution</button>
+                </div>
+                <form class="login-form animate-on-scroll">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn btn-primary">Login / Register</button>
+                    <p>Secure login with 2FA. Optional Google/Apple sign-in.</p>
+                    <div class="social-login">
+                        <button class="social-btn"><i class="fab fa-google"></i> Sign in with Google</button>
+                        <button class="social-btn"><i class="fab fa-apple"></i> Sign in with Apple</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="section-padding alt-bg">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">🧰 Tech Stack</h2>
+                <div class="tech-stack-categories">
+                    <div class="tech-category animate-on-scroll">
+                        <h4>AI/ML</h4>
+                        <p>PyTorch/TensorFlow, NumPy, Pandas</p>
+                    </div>
+                    <div class="tech-category animate-on-scroll">
+                        <h4>Backend</h4>
+                        <p>Python (Flask/FastAPI), RESTful API</p>
+                    </div>
+                    <div class="tech-category animate-on-scroll">
+                        <h4>Frontend</h4>
+                        <p>Vanilla HTML, CSS, JS</p>
+                    </div>
+                    <div class="tech-category animate-on-scroll">
+                        <h4>Hosting</h4>
+                        <p>AWS/GCP/Azure</p>
+                    </div>
+                    <div class="tech-category animate-on-scroll">
+                        <h4>Data Sources</h4>
+                        <p>NIH, ADNI, Kaggle Neuro datasets</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">📞 Contact Us</h2>
+                <form class="contact-form animate-on-scroll">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info animate-on-scroll">
+                    <p>Email: <a href="mailto:neurosteminfo@gmail.com">neurosteminfo@gmail.com</a></p>
                     <div class="social-links">
-                        <a href="https://github.com/abhinitbarua" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://x.com/NeuroStem_CRE" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="https://www.github.com/abhinitbarua" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/NeuroStem_CRE" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
                     </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email</label>
-                            <input type="email" id="contact-email" placeholder="youremail@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="What's this regarding?">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="Your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <section id="tech-stack" class="tech-section">
-            <div class="section-heading">
-                <h2>🧰 Tech Stack</h2>
-                <p>Technologies powering NeuroStem</p>
-            </div>
-            
-            <div class="tech-container">
-                <div class="tech-category">
-                    <h3>AI/ML</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> PyTorch/TensorFlow</li>
-                        <li><i class="fas fa-check"></i> NumPy</li>
-                        <li><i class="fas fa-check"></i> Pandas</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-category">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Python (Flask/FastAPI)</li>
-                        <li><i class="fas fa-check"></i> RESTful API</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-category">
-                    <h3>Frontend</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Vanilla HTML</li>
-                        <li><i class="fas fa-check"></i> CSS</li>
-                        <li><i class="fas fa-check"></i> JavaScript</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-category">
-                    <h3>Hosting</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> AWS/GCP/Azure</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-category">
-                    <h3>Data</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> NIH</li>
-                        <li><i class="fas fa-check"></i> ADNI</li>
-                        <li><i class="fas fa-check"></i> Kaggle Neuro datasets</li>
-                    </ul>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M50,20 C70,20 80,40 80,50 C80,60 70,80 50,80 C30,80 20,60 20,50 C20,40 30,20 50,20 Z" fill="none" stroke="currentColor"></path>
-                        <path d="M30,40 Q40,20 50,40 Q60,20 70,40" fill="none" stroke="currentColor"></path>
-                        <path d="M30,60 Q40,80 50,60 Q60,80 70,60" fill="none" stroke="currentColor"></path>
-                    </svg>
-                </div>
-                <h2>NeuroStem</h2>
-                <p>Cognitive Rehabilitation Engine</p>
-            </div>
-            
+        <div class="container">
             <div class="footer-links">
-                <div class="link-column">
-                    <h3>Navigate</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#tools">Tools & Features</a></li>
-                        <li><a href="#disorders">Disorders</a></li>
-                    </ul>
-                </div>
-                
-                <div class="link-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#research">Research</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Partners</a></li>
-                    </ul>
-                </div>
-                
-                <div class="link-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Data Protection</a></li>
-                        <li><a href="#">Compliance</a></li>
-                    </ul>
-                </div>
-                
-                <div class="link-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
+                <a href="#">About</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Documentation</a>
+                <a href="#">Careers</a>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 NeuroStem. Made by Abhinit Barua, Nihal Jyoti Das, and Dibyans Sonowal.</p>
-            <div class="footer-social">
-                <a href="https://github.com/abhinitbarua" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/NeuroStem_CRE" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            </div>
+            <p>© 2025 NeuroStem. All rights reserved.</p>
+            <p>Made by Abhinit Barua, Nihal Jyoti Das, and Dibyans Sonowal.</p>
         </div>
     </footer>
 
