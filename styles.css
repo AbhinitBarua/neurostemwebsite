@@ -174,14 +174,16 @@ header .container {
 .btn {
     padding: 12px 28px;
     text-decoration: none;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid transparent;
     margin: 0.5rem;
     display: inline-block;
     font-family: var(--font-heading);
     cursor: pointer;
+    position: relative; 
+    overflow: hidden; 
 }
 
 .btn-primary {
@@ -204,13 +206,21 @@ header .container {
     border: 2px solid var(--primary-color);
 }
 
+.btn-secondary span {
+    display: inline-block; 
+    position: relative; 
+    transition: transform 0.3s ease;
+}
+
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
+}
+
+.btn-secondary:hover span {
     transform: translateY(-3px);
 }
 
-/* Sections */
 .section-padding {
     padding: 80px 0;
 }
