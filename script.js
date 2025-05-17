@@ -97,15 +97,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission (basic prevention)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add actual form submission logic here (e.g., AJAX)
-            window.location.href = "https://neurostem.vercel.app/rd.html";
-            form.reset(); // Reset form fields
-        });
-    });
-
 });
