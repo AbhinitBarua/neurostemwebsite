@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroStem - Institution Dashboard</title>
+    <link rel="stylesheet" href="itdstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Placeholder for a charting library like Chart.js if you implement actual charts -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/40?text=LOGO" alt="Institution Logo" class="institution-logo-sidebar">
+                <h2>NeuroStem</h2>
+                <p>Institution Admin</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="home-overview"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
+                    <li><a href="#" class="nav-link" data-section="patient-management"><i class="fas fa-hospital-user"></i> Patient Management</a></li>
+                    <li><a href="#" class="nav-link" data-section="staff-management"><i class="fas fa-users-cog"></i> Doctor & Staff</a></li>
+                    <li><a href="#" class="nav-link" data-section="ai-control"><i class="fas fa-brain"></i> MirrorBrain AI Control</a></li>
+                    <li><a href="#" class="nav-link" data-section="appointments"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                    <li><a href="#" class="nav-link" data-section="reports-insights"><i class="fas fa-chart-bar"></i> Reports & Insights</a></li>
+                    <li><a href="#" class="nav-link" data-section="communication"><i class="fas fa-bullhorn"></i> Communication</a></li>
+                    <li><a href="#" class="nav-link" data-section="institution-settings"><i class="fas fa-landmark"></i> Institution Settings</a></li>
+                    <li><a href="#" class="nav-link" data-section="licensing-billing"><i class="fas fa-file-invoice-dollar"></i> Licensing & Billing</a></li>
+                    <li><a href="#" class="nav-link" data-section="support-help"><i class="fas fa-life-ring"></i> Support & Help</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                 <label class="switch theme-switch">
+                    <input type="checkbox" id="darkModeToggleInst">
+                    <span class="slider round"></span>
+                </label>
+                <span style="margin-left: 10px;">Dark Mode</span>
+                <p>© 2023 NeuroStem Health</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- 1. Home / Overview -->
+            <section id="home-overview" class="dashboard-section active">
+                <header class="section-header">
+                    <div class="institution-branding">
+                        <img src="https://via.placeholder.com/60?text=INST+LOGO" alt="Institution Logo" class="institution-logo-main">
+                        <h1>Central Neurology Institute</h1>
+                    </div>
+                    <p>Welcome back, Admin Manager!</p>
+                </header>
+                <div class="content-grid overview-stats-grid">
+                    <div class="stat-card"><i class="fas fa-users"></i> Total Patients <span class="stat-value">1,250</span></div>
+                    <div class="stat-card"><i class="fas fa-user-md"></i> Total Doctors <span class="stat-value">45</span></div>
+                    <div class="stat-card"><i class="fas fa-robot"></i> AI Reports Run (30d) <span class="stat-value">876</span></div>
+                    <div class="stat-card"><i class="fas fa-calendar-day"></i> Appointments Today <span class="stat-value">112</span></div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-cogs"></i> MirrorBrain AI Usage (Last 30 Days)</h3>
+                        <ul class="ai-usage-list">
+                            <li>🧬 R1-50B (Deep Diagnosis): <strong>350 Reports</strong></li>
+                            <li>🧠 L2-4B (Quick Screener): <strong>410 Reports</strong></li>
+                            <li>🔬 X3-20B (Specialist AI): <strong>116 Reports</strong></li>
+                        </ul>
+                        <!-- Placeholder for a pie chart -->
+                         <canvas id="aiModelUsageChart" style="max-height: 200px; margin-top:15px;"></canvas>
+                    </div>
+                    <div class="card alerts-notifications">
+                        <h3><i class="fas fa-bell"></i> Alerts & Notifications</h3>
+                        <ul>
+                            <li class="alert-high"><i class="fas fa-exclamation-triangle"></i> <strong>Critical AI Report:</strong> Patient P3045 flagged high-risk for acute neurological event. (Dr. Emily Carter notified)</li>
+                            <li class="alert-medium"><i class="fas fa-comment-dots"></i> <strong>Doctor Feedback:</strong> 3 AI reports disputed by Dr. Lee pending review.</li>
+                            <li class="alert-low"><i class="fas fa-file-alt"></i> <strong>System:</strong> AI Model L2-4B updated to v1.3.</li>
+                            <li class="alert-info"><i class="fas fa-credit-card"></i> <strong>Licensing:</strong> 85% of monthly AI compute tokens used.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Patient Management -->
+            <section id="patient-management" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Patient Management</h1>
+                </header>
+                <div class="controls-bar">
+                    <input type="text" placeholder="Search Patients (Name, ID, Condition)...">
+                    <select>
+                        <option value="">Filter by Doctor</option>
+                        <option value="dr_carter">Dr. Carter</option>
+                        <option value="dr_lee">Dr. Lee</option>
+                    </select>
+                    <button class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                    <button class="btn btn-secondary" data-modal-target="addPatientModal"><i class="fas fa-user-plus"></i> Add Patient</button>
+                    <button class="btn btn-secondary" data-modal-target="importPatientModal"><i class="fas fa-file-import"></i> Import Patients (CSV)</button>
+                </div>
+                <div class="patient-card-grid">
+                    <!-- Example Patient Card -->
+                    <div class="patient-card">
+                        <h4>John Doe (ID: P1088)</h4>
+                        <p>Age: 65</p>
+                        <p>Assigned Doctor: Dr. Anya Sharma</p>
+                        <p>Last AI Report (Oct 20): MCI Suspected (L2-4B)</p>
+                        <div class="patient-card-actions">
+                            <a href="#" class="action-link"><i class="fas fa-eye"></i> View Full Profile</a>
+                        </div>
+                    </div>
+                    <div class="patient-card">
+                        <h4>Jane Smith (ID: P3045)</h4>
+                        <p>Age: 72</p>
+                        <p>Assigned Doctor: Dr. Emily Carter</p>
+                        <p class="critical-alert">Last AI Report (Oct 26): High-Risk Flag (R1-50B)</p>
+                        <div class="patient-card-actions">
+                            <a href="#" class="action-link"><i class="fas fa-eye"></i> View Full Profile</a>
+                        </div>
+                    </div>
+                    <!-- Add more patient cards -->
+                </div>
+                <div class="card" style="margin-top: 30px;">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Bulk Upload Scan Data</h3>
+                    <input type="file" multiple>
+                    <label><input type="checkbox" checked> Auto-run MirrorBrain AI on upload</label>
+                    <button class="btn" style="margin-top:10px;"><i class="fas fa-upload"></i> Upload Batch</button>
+                </div>
+                 <div class="card" style="margin-top: 30px;">
+                    <h3><i class="fas fa-tachometer-alt"></i> Patient Monitoring Dashboard</h3>
+                    <p><em>Placeholder: A table or visual summary of patients with active AI alerts, high-risk flags, or upcoming critical appointments.</em></p>
+                    <img src="https://via.placeholder.com/800x200?text=Patient+Risk+Overview+Placeholder" class="placeholder-large-graph">
+                </div>
+            </section>
+
+            <!-- 3. Doctor & Staff Management -->
+            <section id="staff-management" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Doctor & Staff Management</h1>
+                    <button class="btn btn-primary" data-modal-target="addDoctorModal"><i class="fas fa-user-md"></i> Add New Doctor/Staff</button>
+                </header>
+                <div class="data-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Specialization</th>
+                                <th>Assigned Patients</th>
+                                <th>MirrorBrain Usage (30d)</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Emily Carter</td>
+                                <td>Neurologist</td>
+                                <td>150</td>
+                                <td>75 Reports</td>
+                                <td>2023-10-26 09:15</td>
+                                <td><a href="#" class="action-link"><i class="fas fa-edit"></i> Edit</a> <a href="#" class="action-link"><i class="fas fa-shield-alt"></i> Permissions</a></td>
+                            </tr>
+                            <tr>
+                                <td>Dr. David Lee</td>
+                                <td>Neuropsychologist</td>
+                                <td>80</td>
+                                <td>40 Reports</td>
+                                 <td>2023-10-25 14:30</td>
+                                <td><a href="#" class="action-link"><i class="fas fa-edit"></i> Edit</a> <a href="#" class="action-link"><i class="fas fa-shield-alt"></i> Permissions</a></td>
+                            </tr>
+                            <!-- More staff rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card" style="margin-top:30px;">
+                    <h3><i class="fas fa-history"></i> Staff Access Logs (Audit Trail)</h3>
+                    <div class="data-table-container">
+                        <table>
+                            <thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td>2023-10-26 10:05</td><td>Admin Manager</td><td>Accessed Patient P3045 Record</td><td>Viewed AI Report</td></tr>
+                                <tr><td>2023-10-26 09:15</td><td>Dr. Emily Carter</td><td>Logged In</td><td>IP: 192.168.1.10</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-secondary" style="margin-top:15px;"><i class="fas fa-file-export"></i> Export Logs</button>
+                </div>
+            </section>
+
+            <!-- 4. MirrorBrain AI Control Panel -->
+            <section id="ai-control" class="dashboard-section">
+                <header class="section-header">
+                    <h1>MirrorBrain AI Control Panel</h1>
+                </header>
+                <div class="content-grid ai-control-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-chart-pie"></i> Institution AI Usage</h3>
+                        <ul class="ai-usage-list">
+                            <li>R1-50B: <strong id="r1Usage">350</strong></li>
+                            <li>L2-4B: <strong id="l2Usage">410</strong></li>
+                            <li>X3-20B: <strong id="x3Usage">116</strong></li>
+                        </ul>
+                        <p>Compute Budget: <strong>$1500 / $2000 Used</strong> (75%)</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-map-marked-alt"></i> AI Usage by Department</h3>
+                        <p><em>Placeholder for department-wise usage chart (e.g., Neurology: 60%, Psychiatry: 25%, General Med: 15%)</em></p>
+                         <img src="https://via.placeholder.com/300x150?text=Dept+Usage+Chart" class="placeholder-graph">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-sliders-h"></i> AI Configuration Options</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label for="defaultInstModel">Default AI Model for Institution:</label>
+                            <select id="defaultInstModel">
+                                <option value="R1-50B">R1-50B – Deep Diagnosis AI</option>
+                                <option value="L2-4B" selected>L2-4B – Quick Screener</option>
+                                <option value="X3-20B">X3-20B – Specialist AI</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="deptModelControl">Enable/Disable Models for Departments:</label>
+                            <button type="button" class="btn btn-sm btn-secondary">Manage Department Models</button>
+                        </div>
+                        <div class="form-group toggle-group">
+                            <label><i class="fas fa-upload"></i> Auto-run AI on New Scan Uploads:</label>
+                            <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                        </div>
+                         <div class="form-group">
+                            <label for="aiModeSelect">Global AI Mode (Accuracy vs. Speed):</label>
+                            <select id="aiModeSelect">
+                                <option value="balanced" selected>Balanced</option>
+                                <option value="high_accuracy">High Accuracy (Slower)</option>
+                                <option value="high_speed">High Speed (Screening)</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> Save AI Configurations</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-tasks"></i> Centralized AI Analysis</h3>
+                    <label for="batchPatientSelect">Select Patient Group for Batch Analysis:</label>
+                    <select id="batchPatientSelect" multiple size="3" style="width:100%; margin-bottom:10px;">
+                        <option>Unanalyzed Scans (Last 7 Days)</option>
+                        <option>Patients >65 with MCI History</option>
+                        <option>Department: Neurology - New EEG Scans</option>
+                    </select>
+                    <button class="btn"><i class="fas fa-play"></i> Run Batch Analysis</button>
+                    <p style="margin-top:10px;"><input type="checkbox" checked> Flag high-risk results and notify admin.</p>
+                </div>
+            </section>
+
+            <!-- 5. Appointments & Scheduling -->
+            <section id="appointments" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Appointments & Scheduling (All Doctors)</h1>
+                    <button class="btn btn-primary" data-modal-target="scheduleAppointmentModal"><i class="fas fa-calendar-plus"></i> Schedule New</button>
+                </header>
+                 <div class="controls-bar">
+                    <input type="date" value="2023-10-27"> <!-- Default to today or current view -->
+                    <select><option>View: Daily</option><option>Weekly</option><option>Monthly</option></select>
+                    <select><option>All Doctors</option><option>Dr. Carter</option></select>
+                    <select><option>All Departments</option><option>Neurology</option></select>
+                </div>
+                <div class="calendar-view-placeholder">
+                    <p><em>Large interactive calendar displaying appointments for all selected doctors/departments would go here. Color-coded by doctor or appointment type.</em></p>
+                    <img src="https://via.placeholder.com/1000x400?text=Master+Calendar+View" class="placeholder-large-graph">
+                </div>
+                <div class="card" style="margin-top:20px;">
+                    <h3><i class="fas fa-inbox"></i> Pending Appointment Requests (3)</h3>
+                    <!-- List of requests -->
+                </div>
+            </section>
+
+            <!-- 6. Reports & Insights -->
+            <section id="reports-insights" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Reports & Institutional Insights</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card full-width">
+                        <h3><i class="fas fa-stethoscope"></i> Diagnostic Trends</h3>
+                        <p><em>Placeholder: Charts showing most detected conditions, AI detection volume over time, patient recovery rates.</em></p>
+                        <img src="https://via.placeholder.com/800x300?text=Diagnostic+Trends+Chart" class="placeholder-large-graph">
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-file-export"></i> Exportable Reports</h3>
+                        <ul>
+                            <li><a href="#" class="action-link"><i class="fas fa-download"></i> Institution AI Usage Statistics (PDF/CSV)</a></li>
+                            <li><a href="#" class="action-link"><i class="fas fa-download"></i> Patient Outcome Statistics (Aggregated, Anonymized)</a></li>
+                            <li><a href="#" class="action-link"><i class="fas fa-download"></i> AI Model Accuracy & Feedback Logs (Compliance)</a></li>
+                            <li><a href="#" class="action-link"><i class="fas fa-download"></i> Staff Activity Report</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Communication -->
+            <section id="communication" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Communication Center</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-paper-plane"></i> Admin Message to Doctor(s)</h3>
+                        <select multiple size="3" style="width:100%; margin-bottom:10px;">
+                            <option>All Doctors</option>
+                            <option>Dr. Carter</option>
+                            <option>Neurology Department</option>
+                        </select>
+                        <textarea placeholder="Your message..." rows="3"></textarea>
+                        <button class="btn"><i class="fas fa-envelope"></i> Send Message</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-rss-square"></i> Broadcast Announcements</h3>
+                        <textarea placeholder="Announcement content..." rows="3"></textarea>
+                        <button class="btn btn-primary"><i class="fas fa-rss"></i> Post Announcement</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-comment-medical"></i> Feedback from Doctors</h3>
+                        <ul class="feedback-list">
+                            <li><strong>Dr. Lee (AI Report #AI1023):</strong> "Confidence score seems low for clear visual evidence." - <a href="#" class="action-link">Review</a></li>
+                            <li><strong>Dr. Anya Sharma:</strong> "Suggest adding custom report templates." - <a href="#" class="action-link">Acknowledge</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Institution Profile & Settings -->
+            <section id="institution-settings" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Institution Profile & Settings</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-hospital"></i> Institution Information</h3>
+                        <form>
+                            <label>Institution Name:</label><input type="text" value="Central Neurology Institute">
+                            <label>Address:</label><input type="text" value="123 Health St, Anytown, USA">
+                            <label>Contact Email:</label><input type="email" value="admin@centralneuro.org">
+                            <label>License ID:</label><input type="text" value="INST-LIC-001">
+                            <label>Logo Upload:</label><input type="file">
+                            <button type="button" class="btn"><i class="fas fa-save"></i> Save Info</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-users-shield"></i> Admin User Management</h3>
+                         <!-- List admin users, add new admin user -->
+                         <button class="btn btn-secondary"><i class="fas fa-user-plus"></i> Add Admin User</button>
+                        <h3><i class="fas fa-key"></i> Security Settings</h3>
+                        <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label> Enable 2FA for all Staff<br>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-user-lock"></i> Manage Role-Based Access</button>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-cogs"></i> API Access & Integrations</h3>
+                        <p>API Key: <kbd>inst_api_********************</kbd> <button class="btn btn-sm"><i class="fas fa-redo"></i> Regenerate</button></p>
+                        <p><a href="#" class="action-link"><i class="fas fa-book"></i> API Documentation</a></p>
+                        <p><em>Integrations: EHR (FHIR/HL7), PACS System (Placeholders)</em></p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale"></i> Legal & Compliance</h3>
+                        <ul>
+                            <li><a href="#" class="action-link">View HIPAA/GDPR Consent Logs</a></li>
+                            <li><a href="#" class="action-link">Manage Data Sharing Agreements</a></li>
+                            <li><a href="#" class="action-link">Admin Action Audit Log</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Licensing & Billing -->
+            <section id="licensing-billing" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Licensing & Billing</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-id-card-alt"></i> Current Plan: <strong>Enterprise Tier</strong></h3>
+                        <p>Includes: Unlimited Doctors, 5000 AI Reports/month, Premium Support</p>
+                        <p>Renews: November 01, 2023</p>
+                    </div>
+                     <div class="card">
+                        <h3><i class="fas fa-chart-line"></i> Usage Summary (This Month)</h3>
+                        <p>AI Reports Used: <strong>3560 / 5000</strong></p>
+                        <p>Storage Used: <strong>750GB / 1TB</strong></p>
+                        <p>Active Staff Seats: <strong>45 / Unlimited</strong></p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-file-invoice"></i> Billing</h3>
+                        <a href="#" class="action-link"><i class="fas fa-download"></i> Download Invoice - Oct 2023</a><br>
+                        <a href="#" class="action-link"><i class="fas fa-history"></i> View Billing History</a><br>
+                        <button class="btn btn-primary" style="margin-top:15px;"><i class="fas fa-arrow-alt-circle-up"></i> Upgrade Plan</button>
+                        <button class="btn btn-secondary" style="margin-top:15px;"><i class="fas fa-credit-card"></i> Update Payment Method</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Support & Help -->
+            <section id="support-help" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Support & Help Resources</h1>
+                </header>
+                 <div class="tool-grid">
+                    <div class="tool-card support-tool-card">
+                        <i class="fas fa-book-open fa-2x"></i>
+                        <h3>Institutional User Manual</h3>
+                        <p>Comprehensive guide for admins and staff.</p>
+                        <button class="btn btn-secondary">Open Manual</button>
+                    </div>
+                     <div class="tool-card support-tool-card">
+                        <i class="fas fa-headset fa-2x"></i>
+                        <h3>Submit Support Ticket</h3>
+                        <p>Get assistance from the NeuroStem support team.</p>
+                        <button class="btn btn-secondary">Create Ticket</button>
+                    </div>
+                     <div class="tool-card support-tool-card">
+                        <i class="fas fa-bug fa-2x"></i>
+                        <h3>Bug Reporting</h3>
+                        <p>Report any issues encountered on the platform.</p>
+                        <button class="btn btn-danger">Report a Bug</button>
+                    </div>
+                     <div class="tool-card support-tool-card">
+                        <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                        <h3>Request Staff Training</h3>
+                        <p>Schedule training sessions for MirrorBrain AI or platform usage.</p>
+                        <button class="btn btn-info">Request Training</button>
+                    </div>
+                </div>
+                 <div class="card" style="margin-top:30px;">
+                    <h3><i class="fas fa-cogs"></i> Optional Advanced Features</h3>
+                    <p><i class="fas fa-vials"></i> Institution Sandbox Mode (for training): <span class="status-badge status-active">Enabled</span> <a href="#" class="action-link">Configure</a></p>
+                    <p><i class="fas fa-project-diagram"></i> Integration with EHR Systems: <span class="status-badge status-pending">Setup Required</span> <a href="#" class="action-link">Learn More</a></p>
+                 </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals (hidden by default) -->
+    <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Add New Patient</h2>
+            <form>
+                <label>Full Name:</label><input type="text">
+                <label>Date of Birth:</label><input type="date">
+                <label>Assign Doctor:</label><select><option>Dr. Carter</option></select>
+                <button type="button" class="btn">Save Patient</button>
+            </form>
+        </div>
+    </div>
+    <!-- More modals as needed: importPatientModal, addDoctorModal, scheduleAppointmentModal -->
+
+    <script src="itdscript.js"></script>
+</body>
+</html>
