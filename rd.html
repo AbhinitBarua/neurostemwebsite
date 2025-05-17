@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroStem Researcher Dashboard</title>
+    <link rel="stylesheet" href="rdstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🧠 NeuroStem</h2>
+                <p>Researcher Dashboard</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="overview"><i class="fas fa-home"></i> Overview / Home</a></li>
+                    <li><a href="#" class="nav-link" data-section="patient-data"><i class="fas fa-users"></i> Patient Data Hub</a></li>
+                    <li><a href="#" class="nav-link" data-section="ai-analysis"><i class="fas fa-brain"></i> AI Analysis & Reports</a></li>
+                    <li><a href="#" class="nav-link" data-section="clinical-trials"><i class="fas fa-flask"></i> Clinical Trials & Studies</a></li>
+                    <li><a href="#" class="nav-link" data-section="research-tools"><i class="fas fa-tools"></i> Research Tools</a></li>
+                    <li><a href="#" class="nav-link" data-section="communication"><i class="fas fa-comments"></i> Communication</a></li>
+                    <li><a href="#" class="nav-link" data-section="model-access"><i class="fas fa-cogs"></i> Model & Algorithm Access</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile-settings"><i class="fas fa-user-cog"></i> Profile & Settings</a></li>
+                    <li><a href="#" class="nav-link" data-section="ethics-compliance"><i class="fas fa-balance-scale"></i> Ethics & Compliance</a></li>
+                    <li><a href="#" class="nav-link" data-section="support-feedback"><i class="fas fa-question-circle"></i> Support & Feedback</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>© 2023 NeuroStem</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- 1. Overview / Home -->
+            <section id="overview" class="dashboard-section active">
+                <header class="section-header">
+                    <h1>Welcome, Dr. Researcher!</h1>
+                    <p>Your central hub for NeuroStem research activities.</p>
+                </header>
+                <div class="content-grid">
+                    <div class="card profile-summary">
+                        <h3>Profile Summary</h3>
+                        <p><i class="fas fa-user-md"></i> Dr. Evelyn Reed</p>
+                        <p><i class="fas fa-envelope"></i> e.reed@neurostem.org</p>
+                        <p><i class="fas fa-microscope"></i> Lead Neurological Researcher</p>
+                    </div>
+                    <div class="card quick-stats">
+                        <h3>Quick Stats</h3>
+                        <div class="stat-item"><span>Active Studies:</span> <strong>5</strong></div>
+                        <div class="stat-item"><span>Patients Enrolled:</span> <strong>250</strong></div>
+                        <div class="stat-item"><span>Detections Made:</span> <strong>1,280</strong></div>
+                        <div class="stat-item"><span>Research Publications:</span> <strong>12</strong></div>
+                    </div>
+                    <div class="card recent-activity full-width">
+                        <h3>Recent Activity Feed</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> New patient data uploaded for Study NS-003.</li>
+                            <li><i class="fas fa-file-alt"></i> Report generated for AI analysis batch #789.</li>
+                            <li><i class="fas fa-bullhorn"></i> AI Model v2.1 deployed for testing.</li>
+                            <li><i class="fas fa-user-plus"></i> Dr. Smith joined the 'Alzheimer's Early Detection' study.</li>
+                        </ul>
+                    </div>
+                    <div class="card announcements full-width">
+                        <h3>Important Announcements</h3>
+                        <div class="announcement-item">
+                            <h4><i class="fas fa-exclamation-triangle"></i> System Maintenance: Oct 28, 02:00-04:00 UTC</h4>
+                            <p>The platform will be temporarily unavailable for scheduled maintenance.</p>
+                        </div>
+                         <div class="announcement-item">
+                            <h4><i class="fas fa-award"></i> Grant Application Deadline Approaching</h4>
+                            <p>Submit your proposals for the Neurodegenerative Disease Research Grant by Nov 15.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Patient Data Hub -->
+            <section id="patient-data" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Patient Data Hub</h1>
+                </header>
+                <div class="controls">
+                    <input type="text" placeholder="Search Patients (ID, Name)...">
+                    <select>
+                        <option value="">Filter by Disorder</option>
+                        <option value="alzheimers">Alzheimer's</option>
+                        <option value="parkinsons">Parkinson's</option>
+                        <option value="ms">Multiple Sclerosis</option>
+                    </select>
+                    <select>
+                        <option value="">Filter by Risk Level</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <button class="btn"><i class="fas fa-search"></i> Search</button>
+                    <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Export Anonymized Data</button>
+                </div>
+                <div class="data-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Disorder</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Risk Level</th>
+                                <th>Last Scan</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NS-PT-00123</td>
+                                <td>Alzheimer's</td>
+                                <td>72</td>
+                                <td>Female</td>
+                                <td><span class="status high">High</span></td>
+                                <td>2023-10-15 (EEG)</td>
+                                <td><a href="#" class="action-link"><i class="fas fa-eye"></i> View Profile</a> <a href="#" class="action-link"><i class="fas fa-edit"></i> Annotate</a></td>
+                            </tr>
+                            <tr>
+                                <td>NS-PT-00456</td>
+                                <td>Parkinson's</td>
+                                <td>65</td>
+                                <td>Male</td>
+                                <td><span class="status medium">Medium</span></td>
+                                <td>2023-09-20 (MRI)</td>
+                                <td><a href="#" class="action-link"><i class="fas fa-eye"></i> View Profile</a> <a href="#" class="action-link"><i class="fas fa-edit"></i> Annotate</a></td>
+                            </tr>
+                            <!-- More patient rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Placeholder for Detailed Patient Profile (modal or separate view) -->
+            </section>
+
+            <!-- 3. AI Analysis & Reports -->
+            <section id="ai-analysis" class="dashboard-section">
+                <header class="section-header">
+                    <h1>AI Analysis & Reports</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Run New Analysis</h3>
+                        <form>
+                            <label for="data-upload">Upload Data (CSV/Scan Files):</label>
+                            <input type="file" id="data-upload" multiple>
+                            <label for="ai-model">Choose AI Model Version:</label>
+                            <select id="ai-model">
+                                <option value="v2.1">NeuroDetect v2.1 (Latest)</option>
+                                <option value="v2.0">NeuroDetect v2.0</option>
+                                <option value="v1.5-beta">NeuroDetect v1.5 (Beta)</option>
+                            </select>
+                            <label for="param-sensitivity">Sensitivity Parameter:</label>
+                            <input type="range" id="param-sensitivity" min="0" max="100" value="75">
+                            <button type="submit" class="btn"><i class="fas fa-play-circle"></i> Start Analysis</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Model Feedback Tool</h3>
+                        <p>Reviewing Analysis ID: #789</p>
+                        <label for="rating">Rate Analysis Results (1-5 Stars):</label>
+                        <div class="star-rating">
+                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <textarea placeholder="Suggest corrections or provide feedback..."></textarea>
+                        <button class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+                    </div>
+                    <div class="card full-width">
+                        <h3>Analysis History</h3>
+                        <div class="data-table-container">
+                           <table>
+                                <thead>
+                                    <tr>
+                                        <th>Analysis ID</th>
+                                        <th>Date</th>
+                                        <th>Model Used</th>
+                                        <th>Status</th>
+                                        <th>Confidence</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#789</td>
+                                        <td>2023-10-20 14:30</td>
+                                        <td>NeuroDetect v2.1</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                        <td>92%</td>
+                                        <td><a href="#" class="action-link"><i class="fas fa-file-alt"></i> View Report</a> <a href="#" class="action-link"><i class="fas fa-chart-bar"></i> Visuals</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#788</td>
+                                        <td>2023-10-18 10:15</td>
+                                        <td>NeuroDetect v2.0</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                        <td>88%</td>
+                                        <td><a href="#" class="action-link"><i class="fas fa-file-alt"></i> View Report</a> <a href="#" class="action-link"><i class="fas fa-chart-bar"></i> Visuals</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Clinical Trials & Studies -->
+            <section id="clinical-trials" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Clinical Trials & Studies</h1>
+                    <button class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create New Study</button>
+                </header>
+                 <div class="content-grid">
+                    <div class="card full-width">
+                        <h3>Manage Ongoing Trials</h3>
+                        <div class="data-table-container">
+                           <table>
+                                <thead>
+                                    <tr>
+                                        <th>Study ID</th>
+                                        <th>Title</th>
+                                        <th>Participants</th>
+                                        <th>Status</th>
+                                        <th>Milestones</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>NS-STUDY-003</td>
+                                        <td>Early Detection of Alzheimer's via EEG Markers</td>
+                                        <td>85 / 100</td>
+                                        <td><span class="status in-progress">Recruiting</span></td>
+                                        <td>Phase 1 Complete</td>
+                                        <td><a href="#" class="action-link"><i class="fas fa-tasks"></i> Manage</a> <a href="#" class="action-link"><i class="fas fa-users-cog"></i> Participants</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NS-STUDY-004</td>
+                                        <td>AI-Assisted Parkinson's Progression Tracking</td>
+                                        <td>40 / 50</td>
+                                        <td><span class="status in-progress">Active</span></td>
+                                        <td>Data Collection</td>
+                                        <td><a href="#" class="action-link"><i class="fas fa-tasks"></i> Manage</a> <a href="#" class="action-link"><i class="fas fa-users-cog"></i> Participants</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Upload Research Findings</h3>
+                        <form>
+                            <label for="study-select">Select Study:</label>
+                            <select id="study-select">
+                                <option>NS-STUDY-003</option>
+                                <option>NS-STUDY-004</option>
+                            </select>
+                            <label for="findings-upload">Upload Document (PDF, DOCX):</label>
+                            <input type="file" id="findings-upload">
+                            <textarea placeholder="Brief summary of findings..."></textarea>
+                            <button type="submit" class="btn"><i class="fas fa-upload"></i> Upload</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Collaborate with Peers</h3>
+                        <p>Invite collaborators to your studies or share findings securely.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-share-alt"></i> Share Study Data</button>
+                        <button class="btn btn-secondary"><i class="fas fa-user-plus"></i> Invite Collaborator</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Research Tools -->
+            <section id="research-tools" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Research Tools</h1>
+                </header>
+                 <div class="tool-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-database fa-3x"></i>
+                        <h3>Dataset Builder</h3>
+                        <p>Generate custom datasets from the system database for specific research queries.</p>
+                        <button class="btn btn-secondary">Launch Builder</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-eye fa-3x"></i>
+                        <h3>NeuroImage Viewer</h3>
+                        <p>Zoomable medical scan viewer (EEG, MRI, CT) with annotation support.</p>
+                        <button class="btn btn-secondary">Open Viewer</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-chart-pie fa-3x"></i>
+                        <h3>Statistical Analysis Toolkit</h3>
+                        <p>Prebuilt AI-assisted tests and data visualizations for your datasets.</p>
+                        <button class="btn btn-secondary">Access Toolkit</button>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-book-open fa-3x"></i>
+                        <h3>Literature Library</h3>
+                        <p>Access latest papers, whitepapers, and public datasets in neuroscience.</p>
+                        <button class="btn btn-secondary">Browse Library</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Communication & Collaboration -->
+            <section id="communication" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Communication & Collaboration</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Team Messaging / Chat</h3>
+                        <p>Real-time chat with your research team and collaborators.</p>
+                        <button class="btn"><i class="fas fa-comments"></i> Open Messenger</button>
+                        <!-- Placeholder for chat interface -->
+                    </div>
+                    <div class="card">
+                        <h3>Schedule Meetings</h3>
+                        <p>Integrate with your calendar to schedule and manage research meetings.</p>
+                        <button class="btn"><i class="fas fa-calendar-alt"></i> Schedule New Meeting</button>
+                        <!-- Placeholder for calendar/scheduler -->
+                    </div>
+                     <div class="card">
+                        <h3>Collaborator Access Controls</h3>
+                        <p>Manage permissions for collaborators on specific studies or datasets.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-user-shield"></i> Manage Access</button>
+                    </div>
+                    <div class="card">
+                        <h3>Forum / Q&A</h3>
+                        <p>Discuss research topics, ask questions, and share knowledge with other NeuroStem researchers.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-question-circle"></i> Go to Forum</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Model & Algorithm Access -->
+            <section id="model-access" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Model & Algorithm Access</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Access AI Model API</h3>
+                        <p>Integrate NeuroStem's AI models into your custom applications.</p>
+                        <button class="btn"><i class="fas fa-code"></i> Get API Key & Docs</button>
+                    </div>
+                    <div class="card">
+                        <h3>Switch Between Model Versions</h3>
+                        <p>Select different versions of AI models for comparative analysis or specific tasks.</p>
+                        <select>
+                            <option>NeuroDetect v2.1 (Production)</option>
+                            <option>NeuroDetect v2.0 (Legacy)</option>
+                            <option>ImageSeg v1.3 (Beta)</option>
+                        </select>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-sync-alt"></i> Apply Selection</button>
+                    </div>
+                    <div class="card">
+                        <h3>Submit Custom Models</h3>
+                        <p>Have a custom AI model? Submit it for testing and potential integration within the NeuroStem platform.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-upload"></i> Submit Model</button>
+                    </div>
+                     <div class="card">
+                        <h3>Benchmark Tools</h3>
+                        <p>Compare performance of different models on standardized datasets.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Run Benchmarks</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Profile & Settings -->
+            <section id="profile-settings" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Profile & Settings</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Edit Profile & Credentials</h3>
+                        <form>
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" id="fullName" value="Dr. Evelyn Reed">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" value="e.reed@neurostem.org">
+                            <label for="specialization">Specialization:</label>
+                            <input type="text" id="specialization" value="Lead Neurological Researcher">
+                            <label for="new-password">New Password (optional):</label>
+                            <input type="password" id="new-password">
+                            <button type="submit" class="btn"><i class="fas fa-save"></i> Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Upload Certifications</h3>
+                        <p>Maintain up-to-date professional certifications.</p>
+                        <input type="file" id="cert-upload">
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-upload"></i> Upload Certificate</button>
+                        <ul style="margin-top: 15px;">
+                            <li>Medical License (exp. 2025-12-31) <a href="#" class="action-link"><i class="fas fa-trash"></i></a></li>
+                            <li>Board Certification (exp. 2027-06-30) <a href="#" class="action-link"><i class="fas fa-trash"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Notification Preferences</h3>
+                        <label><input type="checkbox" checked> Email for new analysis results</label>
+                        <label><input type="checkbox" checked> Email for study updates</label>
+                        <label><input type="checkbox"> Email for platform announcements</label>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-save"></i> Save Preferences</button>
+                    </div>
+                    <div class="card">
+                        <h3>2FA & Security Settings</h3>
+                        <p>Enhance your account security.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-shield-alt"></i> Configure 2FA</button>
+                        <a href="#" class="action-link" style="display: block; margin-top: 10px;">View Login History</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Ethics & Compliance -->
+            <section id="ethics-compliance" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Ethics & Compliance</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Research Compliance Checklist</h3>
+                        <ul>
+                            <li><i class="fas fa-check-square"></i> IRB Approval Obtained for Study NS-003</li>
+                            <li><i class="far fa-square"></i> Data Anonymization Protocol Verified for Q4</li>
+                            <li><i class="fas fa-check-square"></i> Annual Ethics Training Completed</li>
+                        </ul>
+                        <button class="btn btn-secondary"><i class="fas fa-clipboard-list"></i> View Full Checklist</button>
+                    </div>
+                    <div class="card">
+                        <h3>Ethics Approvals & Documents</h3>
+                        <p>Access and manage all ethics-related documentation.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-folder-open"></i> Browse Documents</button>
+                        <button class="btn" style="margin-left:10px;"><i class="fas fa-upload"></i> Upload New Document</button>
+                    </div>
+                    <div class="card">
+                        <h3>Patient Consent Management</h3>
+                        <p>Track and manage patient consent forms for all studies.</p>
+                        <input type="text" placeholder="Search by Patient ID or Study ID...">
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-search"></i> Find Consent Forms</button>
+                    </div>
+                    <div class="card">
+                        <h3>Data Privacy Logs</h3>
+                        <p>Review logs related to data access and privacy measures.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-history"></i> View Access Logs</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Support & Feedback -->
+            <section id="support-feedback" class="dashboard-section">
+                <header class="section-header">
+                    <h1>Support & Feedback</h1>
+                </header>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Request Support</h3>
+                        <form>
+                            <label for="support-topic">Topic:</label>
+                            <select id="support-topic">
+                                <option>Technical Issue</option>
+                                <option>Data Query</option>
+                                <option>Account Problem</option>
+                                <option>Other</option>
+                            </select>
+                            <textarea placeholder="Describe your issue in detail..."></textarea>
+                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Submit Request</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Bug Reporting</h3>
+                        <form>
+                            <label for="bug-location">Location of Bug (e.g., page, feature):</label>
+                            <input type="text" id="bug-location">
+                            <textarea placeholder="Describe the bug and steps to reproduce..."></textarea>
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-bug"></i> Report Bug</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <h3>Feature Requests</h3>
+                        <form>
+                             <textarea placeholder="Suggest a new feature or improvement..."></textarea>
+                            <button type="submit" class="btn btn-secondary"><i class="fas fa-lightbulb"></i> Submit Request</button>
+                        </form>
+                    </div>
+                     <div class="card">
+                        <h3>User Manual & Documentation</h3>
+                        <p>Find answers to common questions and learn how to use platform features.</p>
+                        <button class="btn btn-secondary"><i class="fas fa-book"></i> Open Documentation</button>
+                        <button class="btn btn-secondary" style="margin-top:10px;"><i class="fas fa-video"></i> Watch Tutorials</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="rdscript.js"></script>
+</body>
+</html>
