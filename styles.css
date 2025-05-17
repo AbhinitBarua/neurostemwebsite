@@ -8,9 +8,6 @@
     --accent-glow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
     --font-heading: 'Exo 2', sans-serif;
     --font-body: 'Rajdhani', sans-serif;
-
-    /* Bird animation variables (can be adjusted in JS too) */
-    --bird-color: rgba(0, 242, 234, 0.3); /* Semi-transparent primary color */
 }
 
 * {
@@ -38,90 +35,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Make sure this is behind content AND the birds */
-
-    /* Animated Gradient - new */
-    background: linear-gradient(235deg, #0f2027, #203a43, #2c5364, var(--secondary-color), var(--primary-color));
-    background-size: 400% 400%; /* Much larger for smooth animation */
-    animation: 
-        gradientShift 25s ease infinite, /* Gradient animation */
-        backgroundScroll 120s linear infinite; /* Grid animation */
-    
-    /* The grid SVG, make sure it's listed AFTER the gradient for layering */
-    /* Increased fill-opacity from 0.2 to 0.4 (or your desired value) */
-    background-image: 
-        linear-gradient(235deg, #0f2027, #203a43, #2c5364, var(--secondary-color), var(--primary-color)), /* Gradient first */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill-rule="evenodd"><g fill="%231a2340" fill-opacity="0.4"><path opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-
-        9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/></g></g></svg>');
-    /* This ensures background-position from backgroundScroll targets the SVG */
-    background-repeat: no-repeat, repeat; /* no-repeat for gradient, repeat for SVG */
-    background-position: 0% 0%, 0 0; /* Initial position for gradient, Initial for grid */
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    z-index: -1;
+    background: 
+        linear-gradient(rgba(10, 15, 31, 0.95), rgba(10, 15, 31, 0.99)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill-rule="evenodd"><g fill="%231a2340" fill-opacity="0.2"><path opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"/></g></g></svg>');
+    animation: backgroundScroll 120s linear infinite;
 }
 
 @keyframes backgroundScroll {
-    0% { background-position: 0% 0%, 0 0; } /* Adjust only grid position */
-    100% { background-position: 0% 0%, 1000px 1000px; } /* Adjust only grid position */
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
 }
 
-#birds-animation-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Important to clip birds that fly off-screen */
-    z-index: -1; /* Behind content, above main background */
-    pointer-events: none; /* Birds should not interfere with mouse interactions */
-}
-
-.bird {
-    position: absolute;
-    font-family: 'Arial', sans-serif; /* Or any font that has a good bird character */
-    color: var(--bird-color);
-    text-shadow: 0 0 5px rgba(0, 242, 234, 0.5); /* Slight glow to match theme */
-    user-select: none; /* Prevent text selection */
-    animation-name: flyAcross;
-    animation-timing-function: linear;
-    animation-iteration-count: 1; /* Animation will be handled per bird by JS */
-    opacity: 0; /* Start invisible, will be faded in by JS or CSS */
-}
-
-/* Define a CSS animation for the birds */
-@keyframes flyAcross {
-    0% {
-        transform: translateX(-100px) translateY(var(--translate-y-offset, 0px)) scale(var(--bird-scale, 1));
-        opacity: 0;
-    }
-    10% { /* Fade in quickly */
-        opacity: 1;
-    }
-    90% { /* Fade out before leaving */
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(calc(100vw + 100px)) translateY(var(--translate-y-offset, 0px)) scale(var(--bird-scale, 1));
-        opacity: 0;
-    }
-}
-
-@keyframes flyAcrossReversed {
-    0% {
-         transform: translateX(calc(100vw + 100px)) translateY(var(--translate-y-offset, 0px)) scaleX(-1) scale(var(--bird-scale, 1));
-         opacity: 0;
-       }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-    100% {
-        transform: translateX(-100px) translateY(var(--translate-y-offset, 0px)) scaleX(-1) scale(var(--bird-scale, 1));
-        opacity: 0;
-    }
- }
 
 .container {
     max-width: 1200px;
@@ -157,9 +82,7 @@ header .container {
 .nav-links {
     list-style: none;
     display: flex;
-    align-items: center;
 }
-
 
 .nav-links li {
     margin-left: 25px;
@@ -171,7 +94,6 @@ header .container {
     font-weight: 500;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     position: relative;
-    padding-top: 5px;    
     padding-bottom: 5px;
 }
 
@@ -249,16 +171,14 @@ header .container {
 .btn {
     padding: 12px 28px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 50px; /* Pill shape */
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     border: 2px solid transparent;
     margin: 0.5rem;
     display: inline-block;
     font-family: var(--font-heading);
     cursor: pointer;
-    position: relative; 
-    overflow: hidden; 
 }
 
 .btn-primary {
@@ -281,21 +201,13 @@ header .container {
     border: 2px solid var(--primary-color);
 }
 
-.btn-secondary span {
-    display: inline-block; 
-    position: relative; 
-    transition: transform 0.3s ease;
-}
-
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
-}
-
-.btn-secondary:hover span {
     transform: translateY(-3px);
 }
 
+/* Sections */
 .section-padding {
     padding: 80px 0;
 }
